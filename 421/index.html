@@ -263,10 +263,10 @@ python autologin.py</code></pre><p>接着添加计划任务，思路是在指定
     &lt;/Exec&gt;
   &lt;/Actions&gt;
 &lt;/Task&gt;</code></pre><ol>
-<li>创建一个任务，命名一个名称，如：“校园网自动登录”。接着为这个任务添加一个自定义的触发器：新建-&gt;触发器-&gt;开始任务-&gt;发生事件时-&gt;自定义-&gt;新建事件筛选器<br><img src="/img/TASK111.png" srcset="/img/loading.gif" alt=""></li>
+<li>创建一个任务，命名一个名称，如：“校园网自动登录”。接着为这个任务添加一个自定义的触发器：新建-&gt;触发器-&gt;开始任务-&gt;发生事件时-&gt;自定义-&gt;新建事件筛选器<br><img src="/img/TASK333.png" srcset="/img/loading.gif" alt=""></li>
 <li>按日志 -&gt; 事件日志-(应用程序和服务日志)-Microsoft-Windows-WLAN-AutoConfig/Operational -&gt; 事件来源-WLAN-AutoConfig -&gt; 事件ID-8001 -&gt; XML<br><img src="/img/TASK222.png" srcset="/img/loading.gif" alt=""></li>
 <li>勾选“手动编辑查询” -&gt; 在<code>&lt;/Select&gt;</code>前增加代码<code>[EventData[Data[@Name=&#39;SSID&#39;]=&#39;Your WiFi Network&#39;]]</code><br><img src="/img/TASKER8.jpg" srcset="/img/loading.gif" alt=""></li>
-<li>确定以后，在选择触发时运行的脚本：操作-&gt;新建-&gt;启动程序-程序或脚本，填入程序路径<br><img src="/img/TASK333.png" srcset="/img/loading.gif" alt=""></li>
+<li>确定以后，在选择触发时运行的脚本：操作-&gt;新建-&gt;启动程序-程序或脚本，填入程序路径<br><img src="/img/TASK111.png" srcset="/img/loading.gif" alt=""></li>
 <li>你还可能需要在条件选项卡里面去除勾选“只有在计算机使用交流电源时才启动此任务”，以避免未接通电源时脚本停止工作。<br><img src="/img/TASK13.jpg" srcset="/img/loading.gif" alt=""></li>
 </ol>
 <h2 id="2-Android"><a href="#2-Android" class="headerlink" title="2.Android"></a>2.Android</h2><p>光实现电脑的校园网自动登录也许远远不够，以下是手机端（Android）实现方法。<br>操作环境：MIUI11 (Android Q)<br>需要手机软件:  </p>
