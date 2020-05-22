@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    2k 字
+                    2.1k 字
                   </span>
                 
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      8 分钟
+                      9 分钟
                   </span>
                 
 
@@ -316,8 +316,8 @@ apt upgrade</code></pre></li>
 <li><p>拷贝脚本到<code>~/.termux/tasker</code>目录  </p>
 <pre><code>cp /storage/emulated/0/Download/auto-login.sh .termux/tasker  </code></pre><p class="note note-primary">由于Andriod10的存储规则，应用只能访问自身和公共存储区域，所以把文件放入指定目录的操作才会如此“曲折 ”。  
 此外，直接运行Python脚本是会被认为成.sh文件运行的，解决方案之一是在Python脚本开头增加声明"#!/data/data/com.termux/files/usr/bin/python"，但是实测发现，运行会报文件不存在，也不知道是为什么...😓所以最终选择用两个脚本文件实现。</p>  </li>
-<li><p>接着进入Tasker，在配置文件下点击右下角加号，新建“第一条件”-&gt;状态-&gt;网络-&gt;Wifi已连接，在SSID填入对应的Wlan名称。<br><img src="/img/taska111.png" srcset="/img/loading.gif" alt=""></p>
-</li>
+<li><p>接着进入Tasker，在配置文件下点击右下角加号，新建“第一条件”-&gt;状态-&gt;网络-&gt;Wifi已连接，在SSID填入对应的Wlan名称。<br><img src="/img/taska111.png" srcset="/img/loading.gif" alt="">  </p>
+<p class="note note-warning">注意，从 Android 6.0 开始，WiFi 的扫描结果需在 GPS 功能开启的前提下才能获取，这意味着你需要打开定位并赋予Tasker定位权限，Tasker才能正确获取到当前连接的网络名称。当然，你也可以选择不填写SSID，但是这会让Tasker连接任意网络时都运行脚本。</p>  </li>
 <li><p>完成后返回，再新建一个任务，名称如“登陆校园网”，点击右下角加号添加操作-&gt;插件-&gt;Termux:Tasker-&gt;“配置”右侧的编辑按钮，进入插件的界面，填入脚本名称”auto-login.sh “<br><img src="/img/taska222.png" srcset="/img/loading.gif" alt=""></p>
 </li>
 <li><p>点击右上角保存按钮，返回到主界面，这时一个在一定条件下触发的操作任务就被保存了。  </p>
@@ -331,6 +331,19 @@ apt upgrade</code></pre></li>
             <div>
               <p>
                 
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/APP/">APP</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Android/">Android</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Windows/">Windows</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                  </span>
                 
               </p>
               
