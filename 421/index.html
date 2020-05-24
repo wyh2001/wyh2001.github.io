@@ -172,7 +172,7 @@
               <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h1><p>每次使用校园网都需要网页登录，十分麻烦。<br>以脚本代替操作。</p>
 <p>参考：<br><a href="https://blog.csdn.net/shenhuaifeng/article/details/78333851" target="_blank" rel="noopener">python实现校园网自动登录-shenhuaifeng</a><br><a href="https://www.cnblogs.com/roadwide/p/10479723.html" target="_blank" rel="noopener">校园网开机自动登录-RodeWide</a><br><a href="https://www.zhihu.com/question/50249683/answer/120583718" target="_blank" rel="noopener">如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 蒋晟的回答 - 知乎</a><br><a href="https://www.zhihu.com/question/50249683/answer/950791896" target="_blank" rel="noopener">如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 笨笨侠的回答 - 知乎</a><br><a href="https://www.jianshu.com/p/c239a7eaadba" target="_blank" rel="noopener">安卓termux折腾手记：安装python库+tasker调用 - 红色番茄酱 - 简书</a><br><a href="https://www.cnblogs.com/jiangleads/p/10636696.html" target="_blank" rel="noopener">curl命令实现上网认证登录 - chinagod - 博客园</a></p>
 <h1 id="1-Windows"><a href="#1-Windows" class="headerlink" title="1.Windows"></a>1.Windows</h1><p>操作环境：Windows 10    </p>
-<h2 id="构建脚本"><a href="#构建脚本" class="headerlink" title="构建脚本"></a>构建脚本</h2><p>登录脚本可以用Python或Curl写，后者可能更简单。  </p>
+<h2 id="构建脚本"><a href="#构建脚本" class="headerlink" title="构建脚本"></a>构建脚本</h2><p>登录脚本可以用Python或cURL写，后者可能更简单。  </p>
 <h3 id="第一种：Python"><a href="#第一种：Python" class="headerlink" title="第一种：Python"></a>第一种：Python</h3><p>需要python及requests库  </p>
 <p>构造两个个文件，分别为  </p>
 <ol>
@@ -211,7 +211,7 @@ post_data={ &#39;username&#39;: &#39;xxxxxx&#39;,
 #发送post请求登录网页
 requests.post(post_addr,data=post_data,headers=post_header)</code></pre><h4 id="2-auto-login-bat"><a href="#2-auto-login-bat" class="headerlink" title="2. auto-login.bat"></a>2. auto-login.bat</h4><pre><code>@echo off
 python autologin.py</code></pre><h3 id="第二种：cURL"><a href="#第二种：cURL" class="headerlink" title="第二种：cURL"></a>第二种：cURL</h3><p>需要安装cURL。<br>构建一个文件：  </p>
-<h4 id="1-auto-login-bat"><a href="#1-auto-login-bat" class="headerlink" title="1. auto-login.bat"></a>1. auto-login.bat</h4><p>抓包，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy as cURL(<strong>cmd</strong>)，粘贴进文件，就能作为脚本运行了。（如图）<br><img src="/img/curl2.png" srcset="/img/loading.gif" alt="">  </p>
+<h4 id="1-auto-login-bat"><a href="#1-auto-login-bat" class="headerlink" title="1. auto-login.bat"></a>1. auto-login.bat</h4><p>抓包，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(<strong>cmd</strong>)，粘贴进文件，就能作为脚本运行了。（如图）<br><img src="/img/curl2.png" srcset="/img/loading.gif" alt="">  </p>
 <h2 id="自动运行"><a href="#自动运行" class="headerlink" title="自动运行"></a>自动运行</h2><p>接着添加计划任务，思路是在指定WIFI连接时运行脚本。在此使用Windows任务计划程序实现。具体操作 <a href="https://www.zhihu.com/question/50249683/answer/950791896" target="_blank" rel="noopener">笨笨侠的回答</a> 讲的已经很详细了，当然下文我会重复一下。  </p>
 <h3 id="现成的xml文件"><a href="#现成的xml文件" class="headerlink" title="现成的xml文件"></a>现成的xml文件</h3><p>如果你懒得看具体实现过程，可以直接把以下内容存成xml文件导入。  </p>
 <p class="note note-warning">注意先把‘Your WiFi Network’改成对应的WIFI的ssid，把"C:\Users\xxx\Desktop\code\auto-login.bat"改成正确的脚本路径。</p>  
@@ -298,7 +298,7 @@ Tasker真可谓一大神器，可以做到很多自动化的功能（比如验�
 <h4 id="1-autologin-py-1"><a href="#1-autologin-py-1" class="headerlink" title="1. autologin.py"></a>1. autologin.py</h4><p>代码与上文一样。</p>
 <h4 id="2-auto-login-sh"><a href="#2-auto-login-sh" class="headerlink" title="2. auto-login.sh"></a>2. auto-login.sh</h4><pre><code>python  /storage/emulated/0/Download/autologin.py</code></pre><h3 id="第二种：cURL-1"><a href="#第二种：cURL-1" class="headerlink" title="第二种：cURL"></a>第二种：cURL</h3><p>构建一个文件：  </p>
 <h4 id="1-auto-login-sh"><a href="#1-auto-login-sh" class="headerlink" title="1. auto-login.sh"></a>1. auto-login.sh</h4><p>构建一个文件：  </p>
-<h4 id="1-auto-login-sh-1"><a href="#1-auto-login-sh-1" class="headerlink" title="1. auto-login.sh"></a>1. auto-login.sh</h4><p>一样是抓包，与上文提到的类似，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy as cURL(<strong>bash</strong>)，粘贴进文件，脚本就构建好了。（如图）<br><img src="/img/curl.png" srcset="/img/loading.gif" alt="">    </p>
+<h4 id="1-auto-login-sh-1"><a href="#1-auto-login-sh-1" class="headerlink" title="1. auto-login.sh"></a>1. auto-login.sh</h4><p>一样是抓包，与上文提到的类似，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(<strong>bash</strong>)，粘贴进文件，脚本就构建好了。（如图）<br><img src="/img/curl.png" srcset="/img/loading.gif" alt="">    </p>
 <h2 id="自动运行-1"><a href="#自动运行-1" class="headerlink" title="自动运行"></a>自动运行</h2><p>无论是哪一种，文件都放在<code>/storage/emulated/0/Download/</code>下。  </p>
 <p>接着运行Termux，执行以下操作。    </p>
 <ol>
@@ -320,7 +320,7 @@ apt upgrade</code></pre></li>
 </li>
 <li><p>点击右上角保存按钮，返回到主界面，这时一个在一定条件下触发的操作任务就被保存了。  </p>
 </li>
-<li><p>最后不要忘记把Tasker的无障碍权限打开。<br><img src="/img/taska3333.jpg" srcset="/img/loading.gif" alt=""></p>
+<li><p>最后不要忘记授予Tasker无障碍权限与自启动权限。<br><img src="/img/taska3333.jpg" srcset="/img/loading.gif" alt=""></p>
 </li>
 </ol>
 <p class="note note-primary">终极的解决方案或许可以是：在一个可以刷第三方固件的路由器上设置一个cURL开机脚本。</p>
