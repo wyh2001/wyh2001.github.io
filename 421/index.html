@@ -17,7 +17,7 @@
   <meta name="description" content="艺航的个人网站，分享生活的点滴">
   <meta name="author" content="艺航">
   <meta name="keywords" content="博客,blog,hexo">
-  <title>校园网Python/cURL一键登录脚本与实现连接指定Wi-Fi时自动登录（Windows/Android) - 艺航领域</title>
+  <title>实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&amp;Termux（Windows/Android) - 艺航领域</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -169,7 +169,7 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h1><p>每次使用校园网都需要网页登录，十分麻烦。<br>以脚本代替操作。</p>
+              <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h1><p>每次使用校园网都需要网页登录，十分麻烦。<br>以脚本代替操作，并使其在特定条件下自动运行。</p>
 <p>参考：<br><a href="https://blog.csdn.net/shenhuaifeng/article/details/78333851" target="_blank" rel="noopener">python实现校园网自动登录-shenhuaifeng</a><br><a href="https://www.cnblogs.com/roadwide/p/10479723.html" target="_blank" rel="noopener">校园网开机自动登录-RodeWide</a><br><a href="https://www.zhihu.com/question/50249683/answer/120583718" target="_blank" rel="noopener">如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 蒋晟的回答 - 知乎</a><br><a href="https://www.zhihu.com/question/50249683/answer/950791896" target="_blank" rel="noopener">如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 笨笨侠的回答 - 知乎</a><br><a href="https://www.jianshu.com/p/c239a7eaadba" target="_blank" rel="noopener">安卓termux折腾手记：安装python库+tasker调用 - 红色番茄酱 - 简书</a><br><a href="https://www.cnblogs.com/jiangleads/p/10636696.html" target="_blank" rel="noopener">curl命令实现上网认证登录 - chinagod - 博客园</a></p>
 <h1 id="1-Windows"><a href="#1-Windows" class="headerlink" title="1.Windows"></a>1.Windows</h1><p>操作环境：Windows 10    </p>
 <h2 id="构建脚本"><a href="#构建脚本" class="headerlink" title="构建脚本"></a>构建脚本</h2><p>登录脚本可以用Python或cURL写，后者可能更简单。  </p>
@@ -297,8 +297,7 @@ Tasker真可谓一大神器，可以做到很多自动化的功能（比如验�
 </ol>
 <h4 id="1-autologin-py-1"><a href="#1-autologin-py-1" class="headerlink" title="1. autologin.py"></a>1. autologin.py</h4><p>代码与上文一样。</p>
 <h4 id="2-auto-login-sh"><a href="#2-auto-login-sh" class="headerlink" title="2. auto-login.sh"></a>2. auto-login.sh</h4><pre><code>python  /storage/emulated/0/Download/autologin.py</code></pre><h3 id="第二种：cURL-1"><a href="#第二种：cURL-1" class="headerlink" title="第二种：cURL"></a>第二种：cURL</h3><p>构建一个文件：  </p>
-<h4 id="1-auto-login-sh"><a href="#1-auto-login-sh" class="headerlink" title="1. auto-login.sh"></a>1. auto-login.sh</h4><p>构建一个文件：  </p>
-<h4 id="1-auto-login-sh-1"><a href="#1-auto-login-sh-1" class="headerlink" title="1. auto-login.sh"></a>1. auto-login.sh</h4><p>一样是抓包，与上文提到的类似，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(<strong>bash</strong>)，粘贴进文件，脚本就构建好了。（如图）<br><img src="/img/curl.png" srcset="/img/loading.gif" alt="">    </p>
+<h4 id="1-auto-login-sh"><a href="#1-auto-login-sh" class="headerlink" title="1. auto-login.sh"></a>1. auto-login.sh</h4><p>一样是抓包，与上文提到的类似，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(<strong>bash</strong>)，粘贴进文件，脚本就构建好了。（如图）<br><img src="/img/curl.png" srcset="/img/loading.gif" alt="">    </p>
 <h2 id="自动运行-1"><a href="#自动运行-1" class="headerlink" title="自动运行"></a>自动运行</h2><p>无论是哪一种，文件都放在<code>/storage/emulated/0/Download/</code>下。  </p>
 <p>接着运行Termux，执行以下操作。    </p>
 <ol>
@@ -584,7 +583,7 @@ apt upgrade</code></pre></li>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "校园网Python/cURL一键登录脚本与实现连接指定Wi-Fi时自动登录（Windows/Android)&nbsp;",
+        "实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&Termux（Windows/Android)&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
