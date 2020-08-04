@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="description" content="艺航的个人网站，分享生活的点滴">
+  <meta name="author" content="艺航">
+  <meta name="keywords" content="博客,blog,hexo">
+  <title>轻松搭建个人博客——Gridea+GitHub Pages - 艺航领域</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>艺航领域</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/interface2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期二, 八月 4日 2020, 5:32 下午
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    3.1k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      10 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h1><p>如何拥有一个属于自己的博客网站？<br>过去，我会推荐使用WordPress或是Typecho搭建个人站点，但金钱成本（服务器租用）与时间成本（技术故障），常常会令非计算机爱好者望而却步。<br>稍早一些时候，我会推荐利用类似Hexo的博客框架结合GitHub Pages搭建静态博客。由于不需要租用服务器，几乎称得上是零成本。然而，使用者仍然需要面对黑漆漆的命令行，这恐怕对许多人来说也算不上友好。<br>直到前些日子，无意中看到介绍Gridea的文章，拍案叫绝：它等于是让以前的博客框架有了一套容易上手的GUI。<br><img src="/img/gridea/1.png" srcset="/img/loading.gif" alt=""><br>这也是我为什么推荐Gridea：友好的图形客户端，简化的部署过程，易懂的后台设置，搭配GitHub Pages或Gitee搭建网站，非计算机爱好者也能够快速上手。<br>如此一来，就可以邀请身边的小伙伴们一起来搭博客啦🤣。<br><del>（暴露动机）</del>  </p>
+<h1 id="1-配置过程"><a href="#1-配置过程" class="headerlink" title="1. 配置过程"></a>1. 配置过程</h1><ol>
+<li><p>下载<a href="https://gridea.dev/#started" target="_blank" rel="noopener">Gridea</a><br><img src="/img/gridea/2-2.png" srcset="/img/loading.gif" alt=""><br>在下载界面下载相应平台的客户端。主下载地址由于是从GitHub上下载，国内速度有可能比较缓慢，可以使用主下载地址下方列出的Gitee源。  </p>
+</li>
+<li><p>注册<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a><br><img src="/img/gridea/2.png" srcset="/img/loading.gif" alt=""><br>按照相应提示注册GitHub。</p>
+</li>
+<li><p>点击左上角按钮(Create repository)创建一个仓库<br><img src="/img/gridea/3.png" srcset="/img/loading.gif" alt=""><br>仓库名称（Repository name)填写为[<em>你的用户名</em>].github.io，其他保持默认，点击创建(Create repository)。<br><img src="/img/gridea/4.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>点击这里创建一个Token，如图勾选repo权限，最后点击提交。<br><img src="/img/gridea/5.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>保存好生成的一大串字符。<br><img src="/img/gridea/6.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>安装Gridea，在远程-基础配置内填写相关信息。<br>平台这里我们使用的是GitHub Pages，因此勾选，域名与仓库名这边可以先填写先前的[<em>你的用户名</em>].github.io，分支填写默认master，仓库用户名填写你的GitHub用户名，邮箱可填你的绑定邮箱，也可不填，令牌填写之前生成的token，CNAME用于自定义域名，这儿暂时不使用自己的域名，不填写。<br><img src="/img/gridea/7.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>点击左下角“检测远程连接”，如果信息填写正确，就会出现相应提示，此刻就可以点击右下角保存按钮。你可以先点击预览，在本地查看生成的网站。之后，接着点击左下角的“同步按钮”，同步网站到仓库。  </p>
+</li>
+<li><p>接着你就可以通过浏览器访问网址：[<em>你的用户名</em>].github.io，查看你的网站了。<br><img src="/img/gridea/9.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+</ol>
+<p>目前，整个配置工作基本就完成了！你接下来可以对博客进行个性化设置，更改网站名称，更换网站主题等等。  </p>
+<h1 id="2-个性化博客"><a href="#2-个性化博客" class="headerlink" title="2. 个性化博客"></a>2. 个性化博客</h1><p>你可以在“主题”栏目的各个分支下更改各个配置项，比如在主题-基本配置下，你可以更改一个你喜欢的博客主题（点击进入<a href="https://gridea.dev/themes/" target="_blank" rel="noopener">主题市场</a>浏览更多主题），更改网站的名称以及更改其他杂项，在“自定义配置”下你可以更改网站的布局、颜色、社交链接、自定义CSS等等，你还可以在两外两个栏目里更改网页与头像图片。<br><img src="/img/gridea/10.png" srcset="/img/loading.gif" alt=""><br>你还可以在远程-评论配置里打开评论框，由于是静态博客，并没有数据库，因此需要引入外部服务来实现评论功能。这儿建议使用Gitalk开源项目，Disqus在大陆地区由于被封锁无法使用。具体的开启方式会在下文谈及。<br>个性化操作完成后，记得点击保存。所有的更改完成后，记得点击同步按钮同步本地内容到网站上。   </p>
+<h1 id="3-写文章"><a href="#3-写文章" class="headerlink" title="3. 写文章"></a>3. 写文章</h1><p>开始写文章！你可以先从更改默认的“关于”页面开始，点击进入。  </p>
+<h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><p>你会发现博文中有一些符号，比如 <code>&gt;</code> 或者 <code>##</code>，它们都属于一种名叫Markdown的轻量级标记语言，这儿的<code>&gt;</code>代表“引用”，而<code>##</code>代表“二级标题”。<br><img src="/img/gridea/11.png" srcset="/img/loading.gif" alt=""><br>MarkDown虽然叫“标记语言”，但其实仅仅是一种非常简单的标记（别被吓到啦🤣），和编程根本没有关系。它的目的是在纯文本种实现文本格式（比如在记事本中）（相对应的另一面是Word)。<br>以下罗列的是常用的Markdown语法：  </p>
+<ul>
+<li><code>#</code> 加上文字是一级标题，如<code># 一级标题</code><br>二级标题就是文字前加上两个<code>#</code>，以此类推;</li>
+<li><code>**文字**</code> 表示<strong>加粗</strong>；  </li>
+<li><code>*文字*</code> 表示<em>斜体</em>；  </li>
+<li>文字前加 <code>&gt;</code> 表示引用；  </li>
+<li>空白行输入 <code>* * *</code> 生成分割线；</li>
+<li>无序列表：文字前加 <code>*</code>（或 <code>+</code>、<code>-</code>），如<code>* 文字</code></li>
+<li>有序列表：数字加英文句号，如<code>1. 文字 2. 文字 3. 文字</code></li>
+<li>插入超链接：<code>[显示文本](链接地址)</code></li>
+<li>插入图片：<code>![](图片链接地址)</code>    </li>
+</ul>
+<p>MarkDown的语法大部分都十分易懂，但“插入图片”的语法的确有些繁琐，你可以在写作界面的右侧栏，点击图片的小图标，通过系统界面选取本地图片轻松插入。<br>通过MarkDown写作的好处在于，你可以完全专注于文字内容本身，而无需为他物所干扰；同时，你可以在软件数据目录（<code>~/Documents/Gridea</code>）找到后缀为<code>md</code>的文章文件，你可以通过记事本打开查看，有一天如果你厌倦了使用Gridea，你也可以随时将所有内容迁移到任何支持MarkDown的平台。  </p>
+<h2 id="其他杂项"><a href="#其他杂项" class="headerlink" title="其他杂项"></a>其他杂项</h2><p>右边的侧栏除了可以轻松插入图片、表情，还可以通过设置小图标设置文章的标签、创建时间、封面图、自定义的URL、是否置顶/隐藏等等。<br>你还可以点击<code>···</code>插入“摘要分隔符”，光标之前的内容将会作为摘要，显示在首页的文章摘要上。</p>
+<h2 id="最后步骤"><a href="#最后步骤" class="headerlink" title="最后步骤"></a>最后步骤</h2><p>写作完成后，点击右上角的绿色✔，发布文章，也可以点击灰色✔存为草稿。点击回退 ← 回到主界面。你可以点击同步按钮，把你的更改内容同步到网站上！  </p>
+<h2 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h2><p>刚才更改的是默认的关于页面，现在你就可以新建一篇全新的博文啦。记得如果要让本地内容同步到网站上，需要点击同步按钮进行同步操作。  </p>
+<h1 id="4-探索更多"><a href="#4-探索更多" class="headerlink" title="4. 探索更多"></a>4. 探索更多</h1><p>实际上，你可能会觉得你的网站在某些方面还不算是一个网站，比如，你的博客地址仍然是一个子域名（如：yihang-demo.github.io)，而不是类似于”yharea.com”的二级域名（😂）。又比如，你的博客没有评论框，一个网站不能评论怎么行，小伙伴应该怎样给你的精彩内容评论呢？（😂）接下来，我要讲讲如何自定义域名以及如何配置Gitalk评论框。</p>
+<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><h3 id="什么是域名？"><a href="#什么是域名？" class="headerlink" title="什么是域名？"></a>什么是域名？</h3><p>什么是域名呢？你可以搜索它的定义。通俗来讲，域名犹如网络上的便于人们记忆的地名，而IP地址对应着网络上的门牌号。我们访问各个网站，实际上是在访问它的IP地址。但记住网站的IP地址，就犹如记住精确的门牌号一般不便于人们记忆。通常我们在地址栏访问百度，并不会输入百度的IP地址，而是会输入”<a href="http://www.baidu.com&quot;，由DNS告知我们百度的IP地址是什么。DNS犹如出租车老司机，熟知各种地名对应的具体位置，你登上他的车，说“去百度！”，他就把车辆驶向百度服务器的精确位置。" target="_blank" rel="noopener">www.baidu.com&quot;，由DNS告知我们百度的IP地址是什么。DNS犹如出租车老司机，熟知各种地名对应的具体位置，你登上他的车，说“去百度！”，他就把车辆驶向百度服务器的精确位置。</a><br>如今的移动互联网时代，浏览器不再是唯一的入口，域名的重要性也明显被弱化了，藏在一个个APP的界面之下。</p>
+<h3 id="拥有域名的好处？"><a href="#拥有域名的好处？" class="headerlink" title="拥有域名的好处？"></a>拥有域名的好处？</h3><p>拥有一个域名有什么好处？一方面，别人可以更容易地通过输入地址进入你的网站，比如我的网站名叫“艺航领域”，就对应“yharea”，相对来说就比xxx.github.io这类子域名更加方便。<br>此外，你还可以用自己的域名作为自己邮箱的后缀，比如<a href="mailto:email@yharea.com">email@yharea.com</a>，你可以免费通过网易企业邮箱、腾讯企业邮箱、Yandex企业邮箱配置自己的个性化后缀邮箱，相关内容可以网上搜索。你还可以用域名做到很多其他的事情，在此不再赘述。  </p>
+<h3 id="如何拥有一个自己的域名？"><a href="#如何拥有一个自己的域名？" class="headerlink" title="如何拥有一个自己的域名？"></a>如何拥有一个自己的域名？</h3><p>你可以向国内外的域名注册商申请注册。国内你可以选择<a href="https://wanwang.aliyun.com/" target="_blank" rel="noopener">阿里云</a>，<a href="https://dnspod.cloud.tencent.com/" target="_blank" rel="noopener">腾讯云</a>等平台，国外可以选择<a href="https://www.namesilo.com/" target="_blank" rel="noopener">NameSilo</a>，<a href="https://www.godaddy.com/" target="_blank" rel="noopener">Godaddy</a>等等。注册需要按年支付费用，相对来说<code>.top</code>域名和<code>.xyz</code>域名相对会便宜一些。同时还要注意首年费用和续费费用的区别，并且货比三家，免得掉到坑里。<br>同时，国内平台的域名注册与国外平台不同，现在需要实名认证，具体在各平台上操作完成。  </p>
+<h3 id="注册完后的操作"><a href="#注册完后的操作" class="headerlink" title="注册完后的操作"></a>注册完后的操作</h3><ol>
+<li>打开域名的DNS解析界面，添加两个个CNAME（别名）解析，一个名称填<code>www</code>，地址填写你的子域名地址（如yihang-demo.github.io)。另一个名称填<code>@</code>（相当于空），地址随意在以下四个IP中选择一个：  </li>
+</ol>
+<ul>
+<li>185.199.108.153</li>
+<li>185.199.109.153</li>
+<li>185.199.110.153</li>
+<li>185.199.111.153<br><img src="/img/gridea/12-13.png" srcset="/img/loading.gif" alt=""></li>
+</ul>
+<ol start="2">
+<li>打开Gridea，编辑 后台-CNAME，把CNAME更改为你的域名，比如 yharea.com 或 <a href="http://www.yharea.com" target="_blank" rel="noopener">www.yharea.com</a> 。（加不加www都可以）  </li>
+<li>同步，之后等待解析生效，之后就能通过域名访问网站啦！<br>你还可以在仓库设置里为网站开启强制HTTPS。<br><img src="/img/gridea/14.png" srcset="/img/loading.gif" alt=""><p class="note note-warning">这儿顺便一提，这儿是将域名解析到GitHub Pages上，由于GitHub Pages是国外的服务，因此不需要做额外操作；如果你需要解析到国内IP，比如日后租用国内服务器做网站，你需要备案你的域名。  </p>
+
+</li>
+</ol>
+<h2 id="配置Gitalk评论框"><a href="#配置Gitalk评论框" class="headerlink" title="配置Gitalk评论框"></a>配置Gitalk评论框</h2><ol>
+<li>点击<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">这里</a>创建一个新的OAuth程序，这儿的网址都填写实际的网站网址（如果自定义了域名就都填自定义的域名），并获得Client ID等相关信息。<br><img src="/img/gridea/15-0.png" srcset="/img/loading.gif" alt=""><br><img src="/img/gridea/15.png" srcset="/img/loading.gif" alt=""></li>
+<li>打开Gridea-远程-评论配置，打开“是否显示评论”开关，输入之前OAuth应用的相关信息，Owner就是GitHub用户名。<br><img src="/img/gridea/16-0.png" srcset="/img/loading.gif" alt=""></li>
+<li>保存，同步。</li>
+<li>打开文章页面查看评论框效果，Gitalk的原理是利用GitHub的仓库issue作为评论，因此必须为页面手动初始化（开issue）。首先需要点击登录进行授权，再回到文章页面，这个页面的文章评论框就可以正常工作了。<br><img src="/img/gridea/16.png" srcset="/img/loading.gif" alt=""><br><img src="/img/gridea/17.png" srcset="/img/loading.gif" alt=""><br><img src="/img/gridea/18.png" srcset="/img/loading.gif" alt=""><h1 id="5-写在最后"><a href="#5-写在最后" class="headerlink" title="5. 写在最后"></a>5. 写在最后</h1>很高兴你看到了这儿，写出这篇博文耗费了我一些时间。如果你问我，为什么要花费精力去建立自己的个人博客，我不一定能给出非常明晰的答案。<br>可以观察到的是，互联网正在走向封闭，微信公众号、知乎专栏、微博等等平台，甚至是搜索引擎，都在竭力将流量死死地封锁在自己的领域里。很多时候，我们浏览信息的入口不再是浏览器，而是APP。<br>这是好是坏？<br>我相信，独立的闭环，带来的是平台方在其平台内不受钳制的权力。因为这种闭环会导致信息迁移的困难。用户面对庞大的平台方，往往唯有进与退两种选择；平台上的社交关系等等个人信息，往往带不走。<br>我是相信那句话的，“权力导致腐败，绝对权力导致绝对腐败”。当一篇平台上的文章，可以仅仅因为对平台公司做出批评而消失，当你面对了这种对信息的失控感时，我想，你一定有属于自己的答案。 </li>
+</ol>
+<p>另附上Gridea官方博客的一段话：</p>
+<blockquote>
+<p>为了能够让你找回当年写博客的那个劲儿，又或者在这个快、短社交时代，能够有一个独立的地方，一个属于自己的地方来记录下一些内容。能够让自己的声音不会随着各种信息流而流逝。 ——Gridea</p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/IT/">IT</a>
+                      &nbsp;
+                    
+                      <a class="hover-with-bg" href="/categories/IT/%E7%94%9F%E6%B4%BB/">生活</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Gridea/">Gridea</a>
+                    
+                      <a class="hover-with-bg" href="/tags/GitHub-Pages/">GitHub Pages</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === 'true';
+    var verify = 'false' === 'true';
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "RruWaYfBbeCAmVVYXHiOGtoT-MdYXbMMI",
+        app_key: "Aj0NhpkQmNsoCt2IrriXaAAn",
+        placeholder: "说点什么",
+        avatar: "/retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var post = $('#post');
+      var toc = $('#toc');
+      var tocLimMax = post.offset().top + post.height() - navHeight;
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = $('#board-ctn').css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-105607204-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "轻松搭建个人博客——Gridea+GitHub Pages&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
