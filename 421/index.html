@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    2.3k 字
+                    2.4k 字
                   </span>
                 
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      9 分钟
+                      10 分钟
                   </span>
                 
 
@@ -265,8 +265,14 @@ python autologin.py</code></pre><h3 id="第二种：cURL"><a href="#第二种：
 <li>按日志 -&gt; 事件日志-(应用程序和服务日志)-Microsoft-Windows-WLAN-AutoConfig/Operational -&gt; 事件来源-WLAN-AutoConfig -&gt; 事件ID-8001 -&gt; XML<br><img src="/img/TASK222.png" srcset="/img/loading.gif" alt=""></li>
 <li>勾选“手动编辑查询” -&gt; 在<code>&lt;/Select&gt;</code>前增加代码<code>[EventData[Data[@Name=&#39;SSID&#39;]=&#39;Your WiFi Network&#39;]]</code><br><img src="/img/TASKER8.jpg" srcset="/img/loading.gif" alt=""></li>
 <li>确定以后，在选择触发时运行的脚本：操作-&gt;新建-&gt;启动程序-程序或脚本，填入程序路径<br><img src="/img/TASK111.png" srcset="/img/loading.gif" alt=""></li>
-<li>你还可能需要在条件选项卡里面去除勾选“只有在计算机使用交流电源时才启动此任务”，以避免未接通电源时脚本停止工作。<br><img src="/img/TASK13.jpg" srcset="/img/loading.gif" alt=""></li>
+<li>你还可能需要在条件选项卡里面去除勾选“只有在计算机使用交流电源时才启动此任务”，以避免未接通电源时脚本停止工作。<br><img src="/img/TASK13.jpg" srcset="/img/loading.gif" alt="">    </li>
 </ol>
+<p><strong>2020.8.9更新</strong><br>如果是Python脚本，任务计划还可以这样设置：<br><img src="/img/TASK111-2.png" srcset="/img/loading.gif" alt="">  </p>
+<ul>
+<li>第一栏填写Python安装目录下的pythonw.exe的完整路径  </li>
+<li>第二栏填写Python脚本目录</li>
+<li>第三栏填写Python安装目录的完整路径  </li>
+</ul>
 <h1 id="2-Android"><a href="#2-Android" class="headerlink" title="2.Android"></a>2.Android</h1><p>光实现电脑的校园网自动登录也许远远不够，以下是手机端（Android）实现方法。<br>操作环境：MIUI11 (Android Q)<br>需要手机软件:  </p>
 <ul>
 <li>Tasker （<a href="https://www.coolapk.com/apk/net.dinglisch.android.taskerm" target="_blank" rel="noopener">酷安</a>）   </li>
