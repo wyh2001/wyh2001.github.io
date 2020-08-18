@@ -1,45 +1,44 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN">
+
+
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <meta name="theme-color" content="#2f4154">
   <meta name="description" content="艺航的个人网站，分享生活的点滴">
   <meta name="author" content="艺航">
   <meta name="keywords" content="博客,blog,hexo">
   <title>艺航领域</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
-
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
 
 <link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 
@@ -64,72 +63,46 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
         
           
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
         
           
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
         
           
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
         
           
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
           </li>
         
         
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
           </li>
         
       </ul>
@@ -137,12 +110,12 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="view intro-2" id="background" parallax=true
          style="background: url('/img/snow-mountain.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
             </span>
@@ -152,7 +125,7 @@
 
           
             <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
             </div>
           
         </div>
@@ -163,7 +136,7 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5" id="board"
+        <div class="py-5 z-depth-3" id="board"
           style=margin-top:0>
           
           <div class="container">
@@ -175,569 +148,509 @@
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
+      <div class="col-12 col-md-4 m-auto">
         <a href="/433/" target="_self">
-          <img src="/img/interface2.png" srcset="/img/loading.gif" alt="轻松搭建个人博客——Gridea+GitHub Pages">
+          <img src="/img/interface2.png" srcset="/img/loading.gif" alt="轻松搭建个人博客——Gridea+GitHub Pages"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/433/">轻松搭建个人博客——Gridea+GitHub Pages</a>
-      </h1>
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/433/">
+        <p class="h4 index-header">轻松搭建个人博客——Gridea+GitHub Pages</p>
+      </a>
 
-      <p class="index-excerpt">
-        <a href="/433/">
+      <a href="/433/">
+        
+        
           
-          
-            
-          
-          0. 前言如何拥有一个属于自己的博客网站？过去，我会推荐使用WordPress或是Typecho搭建个人站点，但金钱成本（服务器租用）与时间成本（技术故障），常常会令非计算机爱好者望而却步。稍早一些时候，我会推荐利用类似Hexo的博客框架结合GitHub Pages搭建静态博客。由于不需要租用服务器，几乎称得上是零成本。然而，使用者仍然需要面对黑漆漆的命令行，这恐怕对许多人来说也算不上友好。直到前
-        </a>
-      </p>
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">0. 前言如何拥有一个属于自己的博客网站？过去，我会推荐使用WordPress或是Typecho搭建个人站点，但金钱成本（服务器租用）与时间成本（技术故障），常常会令非计算机爱好者望而却步。稍早一些时候，我会推荐利用类似Hexo的博客框架结合GitHub Pages搭建静态博客。由于不需要租用服务器，几乎称得上是零成本。然而，使用者仍然需要面对黑漆漆的命令行，这恐怕对许多人来说也算不上友好。直到前些日子，无意中看到介绍Gridea的文章，拍案叫绝：它等于是让以前的博客框架有了一套容易上手的GUI。这也是我为什么推荐Gridea：友好的图形客户端，简化的部署过程，易懂的后台设置，搭配GitHub</div>
+        </div>
+      </a>
 
-      <div class="index-btm post-metas">
+      <div class="index-btm">
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-08-04 17:32" pubdate>
-              2020-08-04
-            </time>
-          </div>
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-08-04&nbsp;&nbsp;
         
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/IT/">IT</a>
-            
-              <a href="/categories/IT/%E7%94%9F%E6%B4%BB/">生活</a>
-            
-          </div>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/IT/">IT</a>&nbsp;
+          
+            <a href="/categories/IT/%E7%94%9F%E6%B4%BB/">生活</a>&nbsp;
+          &nbsp;
         
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Gridea/">Gridea</a>
-            
-              <a href="/tags/GitHub-Pages/">GitHub Pages</a>
-            
-          </div>
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Gridea/">Gridea</a>&nbsp;
+          
+            <a href="/tags/GitHub-Pages/">GitHub Pages</a>&nbsp;
+          
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
+      <div class="col-12 col-md-4 m-auto">
         <a href="/421/" target="_self">
-          <img src="/img/internet.jpg" srcset="/img/loading.gif" alt="实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&amp;Termux（Windows/Android)">
+          <img src="/img/internet.jpg" srcset="/img/loading.gif" alt="实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&amp;Termux（Windows/Android)"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/421/">实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&amp;Termux（Windows/Android)</a>
-      </h1>
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/421/">
+        <p class="h4 index-header">实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&amp;Termux（Windows/Android)</p>
+      </a>
 
-      <p class="index-excerpt">
-        <a href="/421/">
+      <a href="/421/">
+        
+        
           
-          
-            
-          
-          0.前言每次使用校园网都需要网页登录，十分麻烦。以脚本代替操作，并使其在特定条件下自动运行。
-参考：python实现校园网自动登录-shenhuaifeng校园网开机自动登录-RodeWide如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 蒋晟的回答 - 知乎如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 笨笨侠的回答 - 知乎安卓termu
-        </a>
-      </p>
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">0.前言每次使用校园网都需要网页登录，十分麻烦。以脚本代替操作，并使其在特定条件下自动运行。
+参考：python实现校园网自动登录-shenhuaifeng校园网开机自动登录-RodeWide如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 蒋晟的回答 - 知乎如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 笨笨侠的回答 - 知乎安卓termux折腾手记：安装python库+tasker调用 - 红色番茄酱 - 简书curl命令实现上网认证登录 - chinagod - 博客园
+1.Windows操作环境：Windows 10    
+构建</div>
+        </div>
+      </a>
 
-      <div class="index-btm post-metas">
+      <div class="index-btm">
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-05-22 16:49" pubdate>
-              2020-05-22
-            </time>
-          </div>
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-22&nbsp;&nbsp;
         
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/IT/">IT</a>
-            
-              <a href="/categories/IT/%E7%94%9F%E6%B4%BB/">生活</a>
-            
-          </div>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/IT/">IT</a>&nbsp;
+          
+            <a href="/categories/IT/%E7%94%9F%E6%B4%BB/">生活</a>&nbsp;
+          &nbsp;
         
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Android/">Android</a>
-            
-              <a href="/tags/Windows/">Windows</a>
-            
-              <a href="/tags/Python/">Python</a>
-            
-              <a href="/tags/APP/">APP</a>
-            
-              <a href="/tags/Chrome/">Chrome</a>
-            
-              <a href="/tags/cURL/">cURL</a>
-            
-          </div>
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Android/">Android</a>&nbsp;
+          
+            <a href="/tags/Windows/">Windows</a>&nbsp;
+          
+            <a href="/tags/Python/">Python</a>&nbsp;
+          
+            <a href="/tags/APP/">APP</a>&nbsp;
+          
+            <a href="/tags/Chrome/">Chrome</a>&nbsp;
+          
+            <a href="/tags/cURL/">cURL</a>&nbsp;
+          
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
+      <div class="col-12 col-md-4 m-auto">
         <a href="/355/" target="_self">
-          <img src="/img/transfer.png" srcset="/img/loading.gif" alt="从WordPress转至Hexo——记一次网站程序迁移">
+          <img src="/img/transfer.png" srcset="/img/loading.gif" alt="从WordPress转至Hexo——记一次网站程序迁移"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/355/">从WordPress转至Hexo——记一次网站程序迁移</a>
-      </h1>
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/355/">
+        <p class="h4 index-header">从WordPress转至Hexo——记一次网站程序迁移</p>
+      </a>
 
-      <p class="index-excerpt">
-        <a href="/355/">
+      <a href="/355/">
+        
+        
           
-          
-            
-          
-          1.迁移原因在不久前，我出于种种考虑，将网站从WordPress迁移至Hexo。倒并非说WordPress有多么不堪，相反的，我个人十分喜爱WordPress，以下是几点原因：
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1.迁移原因在不久前，我出于种种考虑，将网站从WordPress迁移至Hexo。倒并非说WordPress有多么不堪，相反的，我个人十分喜爱WordPress，以下是几点原因：
 
 强大的社区支持如果在使用WordPress的过程中遇到问题，搜索一下往往能得到答案。
 海量的主题与插件适配WordPress有各式各样的主题与插件，能轻松满足各种需求。
-古腾堡编辑器不同于很多人对古腾堡编辑器抱持敌意，我
-        </a>
-      </p>
+古腾堡编辑器不同于很多人对古腾堡编辑器抱持敌意，我钟爱其编辑区域的区块设计，它提供给我视觉与操作逻辑上的极大舒适感。
 
-      <div class="index-btm post-metas">
+但是，WordPress总让我产生安全性上的担忧。WordPress在全球拥有不俗的流行度。根据W3Techs的数据，截至到202</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-07 23:23" pubdate>
-              2020-04-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/IT/">IT</a>
-            
-          </div>
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
         
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/WordPress/">WordPress</a>
-            
-              <a href="/tags/Hexo/">Hexo</a>
-            
-          </div>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/IT/">IT</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/WordPress/">WordPress</a>&nbsp;
+          
+            <a href="/tags/Hexo/">Hexo</a>&nbsp;
+          
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
+      <div class="col-12 col-md-4 m-auto">
         <a href="/321/" target="_self">
-          <img src="/img/apple.jpg" srcset="/img/loading.gif" alt="让课程表进驻你的手机日历——WakeUp课程表">
+          <img src="/img/apple.jpg" srcset="/img/loading.gif" alt="让课程表进驻你的手机日历——WakeUp课程表"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/321/">让课程表进驻你的手机日历——WakeUp课程表</a>
-      </h1>
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/321/">
+        <p class="h4 index-header">让课程表进驻你的手机日历——WakeUp课程表</p>
+      </a>
 
-      <p class="index-excerpt">
-        <a href="/321/">
+      <a href="/321/">
+        
+        
           
-          
-            
-          
-          进入大学后发现，由于大学上课时间、地点的灵活与多变，我时常需要查看我的课程表，查询相关信息。
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">进入大学后发现，由于大学上课时间、地点的灵活与多变，我时常需要查看我的课程表，查询相关信息。
 这个问题有许多种解决方法， 直接记忆 ，将课程表动手抄下或打印，将课程表截图存至手机/设置为壁纸，使用第三方课程表APP等等。这篇文章意图让课程信息进驻手机日历，并较为直观地显示。在撰写这篇文章的过程中，我参考了互联网的一些内容。你同样可以参考以下的资料，探索不同的方法:  
 
-iCal 课表使用指引该篇
-        </a>
-      </p>
+iCal 课表使用指引该篇文章使用微软Outlook进行多平台的日历同步，同样推荐！（微软大法好！🤣）  
+把课程表做成通用日历，灵活安排学习计划来自少数派，利用python等提供更加通用的课程导出方案。
 
-      <div class="index-btm post-metas">
+准备：
+  
+
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-03-11 16:42" pubdate>
-              2020-03-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/IT/">IT</a>
-            
-              <a href="/categories/IT/%E7%94%9F%E6%B4%BB/">生活</a>
-            
-          </div>
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-11&nbsp;&nbsp;
         
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Android/">Android</a>
-            
-              <a href="/tags/APP/">APP</a>
-            
-          </div>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/IT/">IT</a>&nbsp;
+          
+            <a href="/categories/IT/%E7%94%9F%E6%B4%BB/">生活</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Android/">Android</a>&nbsp;
+          
+            <a href="/tags/APP/">APP</a>&nbsp;
+          
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
+      <div class="col-12 col-md-4 m-auto">
         <a href="/344/" target="_self">
-          <img src="/img/bill_gates.jpg" srcset="/img/loading.gif" alt="比尔·盖茨：我们未准备好应对下一次病毒爆发">
+          <img src="/img/bill_gates.jpg" srcset="/img/loading.gif" alt="比尔·盖茨：我们未准备好应对下一次病毒爆发"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/344/">比尔·盖茨：我们未准备好应对下一次病毒爆发</a>
-      </h1>
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/344/">
+        <p class="h4 index-header">比尔·盖茨：我们未准备好应对下一次病毒爆发</p>
+      </a>
 
-      <p class="index-excerpt">
-        <a href="/344/">
+      <a href="/344/">
+        
+        
           
-          
-            
-          
-           佩服Bill Gates 前瞻性的目光。他2015年的TED演讲依然能为当下现状提供启示，我们需要利用现代工具构建更加完善的疫情防控系统。
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1"> 佩服Bill Gates 前瞻性的目光。他2015年的TED演讲依然能为当下现状提供启示，我们需要利用现代工具构建更加完善的疫情防控系统。
 TED视频观看地址：TED 优酷 哔哩哔哩
 
-在2014年这世界幸免了一场埃博拉病毒的暴发，这都要感谢成千上万无私的卫生工作者的奉献和太好的运气。事后看来我们应该可以做得更好。所以现在正是行动的时候。比尔盖茨建议将我们所有的好主意集合起来付诸行动，例如模拟情
-        </a>
-      </p>
+在2014年这世界幸免了一场埃博拉病毒的暴发，这都要感谢成千上万无私的卫生工作者的奉献和太好的运气。事后看来我们应该可以做得更好。所以现在正是行动的时候。比尔盖茨建议将我们所有的好主意集合起来付诸行动，例如模拟情景，疫苗研发和卫生工作者训练等等。正如他所说，“无需惊慌，但我们必须未雨绸缪。”
 
-      <div class="index-btm post-metas">
+以下内容为比尔·盖茨演讲全文（中文）：
+当我还是小孩时, 我们最担心的灾害是核战争。 所以我们在地下室有个这样的筒子</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-02-10 19:10" pubdate>
-              2020-02-10
-            </time>
-          </div>
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-10&nbsp;&nbsp;
         
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
-            
-          </div>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>&nbsp;
+          &nbsp;
         
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
+      <div class="col-12 col-md-4 m-auto">
         <a href="/291/" target="_self">
-          <img src="/img/desk.png" srcset="/img/loading.gif" alt="这几个浏览器插件，让你在大学抢课事半功倍">
+          <img src="/img/desk.png" srcset="/img/loading.gif" alt="这几个浏览器插件，让你在大学抢课事半功倍"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/291/">这几个浏览器插件，让你在大学抢课事半功倍</a>
-      </h1>
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/291/">
+        <p class="h4 index-header">这几个浏览器插件，让你在大学抢课事半功倍</p>
+      </a>
 
-      <p class="index-excerpt">
-        <a href="/291/">
+      <a href="/291/">
+        
+        
           
-          
-            
-          
-          本人是一名大一新生，开学早一些的同龄好友已开始军训。 大学里总有几门课程拥有较高的人气值，因而“抢”到它需要大费周折。在这个过程中，学校的在线选课系统由于各种因素，或多或少会产生不稳定的情况。
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">本人是一名大一新生，开学早一些的同龄好友已开始军训。 大学里总有几门课程拥有较高的人气值，因而“抢”到它需要大费周折。在这个过程中，学校的在线选课系统由于各种因素，或多或少会产生不稳定的情况。
 昨天就有一位来找到我，希望我帮助她一起抢课。我很愉快地接受邀请。
 工欲善其事，必先利其器。这篇文章主要是推荐我在抢课过程中使用到的浏览器插件。
-需要注意的是，本篇文章仅供参考。选课是大学生活中重要的环节之一
-        </a>
-      </p>
+需要注意的是，本篇文章仅供参考。选课是大学生活中重要的环节之一，请自行考虑，合理进行操作。作者不保证方法的可靠性，如选课时造成任何后果（包括但不限于没抢到，抢错了，计算机程序故障），作者不承担任何（包括但不限于直接或间接的）责任。
+我好友的情况为：其大学的选课系</div>
+        </div>
+      </a>
 
-      <div class="index-btm post-metas">
+      <div class="index-btm">
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-08-31 16:21" pubdate>
-              2019-08-31
-            </time>
-          </div>
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-31&nbsp;&nbsp;
         
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/IT/">IT</a>
-            
-              <a href="/categories/IT/%E7%94%9F%E6%B4%BB/">生活</a>
-            
-          </div>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/IT/">IT</a>&nbsp;
+          
+            <a href="/categories/IT/%E7%94%9F%E6%B4%BB/">生活</a>&nbsp;
+          &nbsp;
         
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
-            
-              <a href="/tags/Firefox/">Firefox</a>
-            
-          </div>
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>&nbsp;
+          
+            <a href="/tags/Firefox/">Firefox</a>&nbsp;
+          
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
+      <div class="col-12 col-md-4 m-auto">
         <a href="/165/" target="_self">
-          <img src="/img/truth.jpg" srcset="/img/loading.gif" alt="操纵">
+          <img src="/img/truth.jpg" srcset="/img/loading.gif" alt="操纵"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/165/">操纵</a>
-      </h1>
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/165/">
+        <p class="h4 index-header">操纵</p>
+      </a>
 
-      <p class="index-excerpt">
-        <a href="/165/">
+      <a href="/165/">
+        
+        
           
-          
-            
-          
-          发现一个恶俗的媒体很容易。只需看新闻标题是夸张还是一针见血，演绎是轻狂还是严谨，记者的镜头又是对准谁——是狂热跳跃的人群之上，娱乐明星和氙气灯，还是人群之中，那个高举“爱与和平”的带着坚毅眼神的中年男子，还是人群之外，那个爬山路的孩子……
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">发现一个恶俗的媒体很容易。只需看新闻标题是夸张还是一针见血，演绎是轻狂还是严谨，记者的镜头又是对准谁——是狂热跳跃的人群之上，娱乐明星和氙气灯，还是人群之中，那个高举“爱与和平”的带着坚毅眼神的中年男子，还是人群之外，那个爬山路的孩子……
 我总以为我能辨清。
-可价值的歪曲与操弄，有时像橡皮泥被小孩随意捏造，不是么?有一位姓杨的人，如今已被主流舆论抨击，销声匿迹。有一日，看到走廊的纸上，刊登了学生对
-        </a>
-      </p>
+可价值的歪曲与操弄，有时像橡皮泥被小孩随意捏造，不是么?有一位姓杨的人，如今已被主流舆论抨击，销声匿迹。有一日，看到走廊的纸上，刊登了学生对其的声讨，有喜悦，更多的是无奈。我清晰地记得数年前他出过一本书，书中，你若仔细阅读，会发现逻辑的混乱，定义的谬误，但一切经由华丽的文字修饰，虚伪便叫做真诚，勇敢的突然懦弱，忆不起当年他如何在主流媒体中</div>
+        </div>
+      </a>
 
-      <div class="index-btm post-metas">
+      <div class="index-btm">
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-07-20 23:48" pubdate>
-              2018-07-20
-            </time>
-          </div>
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-20&nbsp;&nbsp;
         
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
-            
-          </div>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>&nbsp;
+          &nbsp;
         
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%9A%8F%E6%84%9F/">随感</a>
-            
-          </div>
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E9%9A%8F%E6%84%9F/">随感</a>&nbsp;
+          
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
+      <div class="col-12 col-md-4 m-auto">
         <a href="/125/" target="_self">
-          <img src="/img/light.jpg" srcset="/img/loading.gif" alt="祝福">
+          <img src="/img/light.jpg" srcset="/img/loading.gif" alt="祝福"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/125/">祝福</a>
-      </h1>
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/125/">
+        <p class="h4 index-header">祝福</p>
+      </a>
 
-      <p class="index-excerpt">
-        <a href="/125/">
-          
-          
-            
-          
-          那些黑夜里的奔行的猛士们啊，祝福你们在战场上，啸出最明亮锋利的剑气。 我亦将须臾奔赴。 ——一位即将进入高三的学生
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-06-07 12:51" pubdate>
-              2018-06-07
-            </time>
-          </div>
+      <a href="/125/">
         
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
-            
-          </div>
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">那些黑夜里的奔行的猛士们啊，祝福你们在战场上，啸出最明亮锋利的剑气。 我亦将须臾奔赴。 ——一位即将进入高三的学生
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-06-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>&nbsp;
+          &nbsp;
         
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
+      <div class="col-12 col-md-4 m-auto">
         <a href="/118/" target="_self">
-          <img src="/img/new-year.jpg" srcset="/img/loading.gif" alt="新年快乐！">
+          <img src="/img/new-year.jpg" srcset="/img/loading.gif" alt="新年快乐！"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/118/">新年快乐！</a>
-      </h1>
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/118/">
+        <p class="h4 index-header">新年快乐！</p>
+      </a>
 
-      <p class="index-excerpt">
-        <a href="/118/">
+      <a href="/118/">
+        
+        
           
-          
-            
-          
-          曾于行路遇见过许多种伤痛，许多种欢愉，许多种创生，许多种泯灭，并因而不知多少次咆哮于黑夜，落寞于潇潇。那些回忆如堆叠书本般，杂乱而清晰，使我记起我为何出发，如何到达，因而我不由得常常想要挣脱了那些违背于此的桎梏，并且重立起身来。是的，我曾想将我的爱意与憎恶毫无保留的倾诉，曾想横眉冷对无端指责，曾想让虚无成为足音，让冷漠成为温情……这些有些或许达成了，但更多的在进程中，甚至只于起端。我仍去做，这是出
-        </a>
-      </p>
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">曾于行路遇见过许多种伤痛，许多种欢愉，许多种创生，许多种泯灭，并因而不知多少次咆哮于黑夜，落寞于潇潇。那些回忆如堆叠书本般，杂乱而清晰，使我记起我为何出发，如何到达，因而我不由得常常想要挣脱了那些违背于此的桎梏，并且重立起身来。是的，我曾想将我的爱意与憎恶毫无保留的倾诉，曾想横眉冷对无端指责，曾想让虚无成为足音，让冷漠成为温情……这些有些或许达成了，但更多的在进程中，甚至只于起端。我仍去做，这是出于我对这个世界本身的热爱，并且，总有人会拍拍我的肩膀，告诉我：“没事啊，这算什么？”，使我不畏惧了前行。 2018年已至，我祝福我的每位好友在新年能更接近了自己所希冀的目标，祝愿自己继续前进，向我的方</div>
+        </div>
+      </a>
 
-      <div class="index-btm post-metas">
+      <div class="index-btm">
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-01-01 00:17" pubdate>
-              2018-01-01
-            </time>
-          </div>
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-01-01&nbsp;&nbsp;
         
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
-            
-          </div>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>&nbsp;
+          &nbsp;
         
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
+      <div class="col-12 col-md-4 m-auto">
         <a href="/112/" target="_self">
-          <img src="/img/bookpages.jpg" srcset="/img/loading.gif" alt="对书的狂想与回忆">
+          <img src="/img/bookpages.jpg" srcset="/img/loading.gif" alt="对书的狂想与回忆"
+               class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/112/">对书的狂想与回忆</a>
-      </h1>
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/112/">
+        <p class="h4 index-header">对书的狂想与回忆</p>
+      </a>
 
-      <p class="index-excerpt">
-        <a href="/112/">
+      <a href="/112/">
+        
+        
           
-          
-            
-          
-          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
 该篇文章从我平日的随感中选取出，以丰富站点内容。
 
 某次我乘坐出租车外出。司机的行为显得有些特别。他在播放一段音频。不，不是那种震动车身的摇滚音乐，不是午后播音员的八卦趣闻的讲说。那是一个抑扬顿挫的男声把书的一个章节读的风流潇洒。这风流的一分竟还融在那司机浑浊的双眸了。
-某次我去往某座城市。无数次拜访它的街头，每一次给我的印象都是步履匆匆的人和从你身旁甩过去的车辆。还有的是夜晚灯光的现代与魔幻。
-        </a>
-      </p>
+某次我去往某座城市。无数次拜访它的街头，每一次给我的印象都是步履匆匆的人和从你身旁甩过去的车辆。还有的是夜晚灯光的现代与魔幻。可我喜同某人去那家图书馆。我轻易的从第一次便能从内置的电脑进入图书馆的图书数据库，把书目的ID发至邮箱，走进内部，穿越幽静，寻得书籍，随意的选取台阶上的一处坐下，融入这一片幽静中。我深感喧哗与浮躁后面</div>
+        </div>
+      </a>
 
-      <div class="index-btm post-metas">
+      <div class="index-btm">
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2017-11-19 15:14" pubdate>
-              2017-11-19
-            </time>
-          </div>
+          <i class="iconfont icon-riqi2"></i>&nbsp;2017-11-19&nbsp;&nbsp;
         
         
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
-            
-          </div>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>&nbsp;
+          &nbsp;
         
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%9A%8F%E6%84%9F/">随感</a>
-            
-          </div>
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E9%9A%8F%E6%84%9F/">随感</a>&nbsp;
+          
         
       </div>
-    </article>
+    </div>
   </div>
 
 
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
   <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
       ele.href += '#board';
     }
   </script>
@@ -753,8 +666,8 @@ TED视频观看地址：TED 优酷 哔哩哔哩
   </main>
 
   
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
     </a>
   
 
@@ -789,10 +702,9 @@ TED视频观看地址：TED 优酷 哔哩哔哩
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
     </div>
     
 
@@ -804,27 +716,65 @@ TED视频观看地址：TED 优酷 哔哩哔哩
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+
+
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-105607204-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  
+
+  
+
+  
+
   
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-
-
-
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
 
 
 
@@ -848,6 +798,21 @@ TED视频观看地址：TED 优酷 哔哩哔哩
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -855,20 +820,24 @@ TED视频观看地址：TED 优酷 哔哩哔哩
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
+      getSearchFile(path);
       this.onclick = null
     }
   </script>
 
 
 
-
-
-
-
-
-
-
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
