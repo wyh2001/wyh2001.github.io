@@ -28,7 +28,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/tomorrow-night-bright.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -174,7 +174,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      373 字
+      371 字
     </span>
   
 
@@ -228,23 +228,32 @@
 <p>需要注意的是，Chrome 不再信任WoSign，StartCom，Symantec证书。</p>
 </blockquote>
 <p><em>.htaccess增加以下代码</em>  </p>
-<pre><code># 强制 HTTPS
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{HTTP\_HOST}%{REQUEST\_URI} \[R=301,L\]</code></pre><p><em>wp-config.php增加以下代码</em></p>
-<pre><code>/* 强制后台和登录使用 SSL */
-define(&#39;FORCE\_SSL\_LOGIN&#39;, true);
-define(&#39;FORCE\_SSL\_ADMIN&#39;, true);</code></pre><p><em>后台WordPress地址更正为HTTPS地址</em></p>
+<pre><code class="hljs apache"><span class="hljs-comment"># 强制 HTTPS</span>
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteEngine</span></span> <span class="hljs-literal">On</span>
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteCond</span></span> <span class="hljs-variable">%&#123;HTTPS&#125;</span> <span class="hljs-literal">off</span>
+<span class="hljs-attribute"><span class="hljs-nomarkup">RewriteRule</span></span> (.*) https://<span class="hljs-variable">%&#123;HTTP\_HOST&#125;</span><span class="hljs-variable">%&#123;REQUEST\_URI&#125;</span> \[R=301,L\]</code></pre>
+
+
+<p><em>wp-config.php增加以下代码</em></p>
+<pre><code class="hljs lasso"><span class="hljs-comment">/* 强制后台和登录使用 SSL */</span>
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>(<span class="hljs-string">'FORCE\_SSL\_LOGIN'</span>, <span class="hljs-literal">true</span>);
+<span class="hljs-class"><span class="hljs-keyword">define</span></span>(<span class="hljs-string">'FORCE\_SSL\_ADMIN'</span>, <span class="hljs-literal">true</span>);</code></pre>
+
+
+<p><em>后台WordPress地址更正为HTTPS地址</em></p>
 <p><em>（可选,我没有使用）更正图片地址</em>  </p>
 <p>在主题functions.php加入</p>
-<pre><code>/* 替换图片链接为 https */
-function my\_content\_manipulator($content){
-if( is_ssl() ){
-$content = str_replace(&#39;http://www.yourdomain.com/wp-content/uploads&#39;, &#39;https://www.yourdomain.com/wp-content/uploads&#39;, $content);
-}
+<pre><code class="hljs reasonml"><span class="hljs-comment">/* 替换图片链接为 https */</span>
+<span class="hljs-keyword">function</span> my\_content\<span class="hljs-constructor">_manipulator($<span class="hljs-params">content</span>)</span>&#123;
+<span class="hljs-keyword">if</span>( is<span class="hljs-constructor">_ssl()</span> )&#123;
+$content = str<span class="hljs-constructor">_replace('<span class="hljs-params">http</span>:<span class="hljs-operator">/</span><span class="hljs-operator">/</span><span class="hljs-params">www</span>.<span class="hljs-params">yourdomain</span>.<span class="hljs-params">com</span><span class="hljs-operator">/</span><span class="hljs-params">wp</span>-<span class="hljs-params">content</span><span class="hljs-operator">/</span><span class="hljs-params">uploads</span>', '<span class="hljs-params">https</span>:<span class="hljs-operator">/</span><span class="hljs-operator">/</span><span class="hljs-params">www</span>.<span class="hljs-params">yourdomain</span>.<span class="hljs-params">com</span><span class="hljs-operator">/</span><span class="hljs-params">wp</span>-<span class="hljs-params">content</span><span class="hljs-operator">/</span><span class="hljs-params">uploads</span>', $<span class="hljs-params">content</span>)</span>;
+&#125;
 return $content;
-}
-add\_filter(&#39;the\_content&#39;, &#39;my\_content\_manipulator&#39;);</code></pre><p><em>浏览网站，使用如Chrome中的开发者工具查找未加密的资源并修正。</em></p>
+&#125;
+add\<span class="hljs-constructor">_filter('<span class="hljs-params">the</span>\<span class="hljs-params">_content</span>', '<span class="hljs-params">my</span>\<span class="hljs-params">_content</span>\<span class="hljs-params">_manipulator</span>')</span>;</code></pre>
+
+
+<p><em>浏览网站，使用如Chrome中的开发者工具查找未加密的资源并修正。</em></p>
 <p><img src="https://yharea.com/wp-content/uploads/2018/09/screenshot.png" srcset="/img/loading.gif" alt=""></p>
 <p>未加密的图像资源</p>
 

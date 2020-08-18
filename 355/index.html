@@ -28,7 +28,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/tomorrow-night-bright.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -174,7 +174,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      893 字
+      907 字
     </span>
   
 
@@ -184,7 +184,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      10
        分钟
     </span>
   
@@ -241,16 +241,37 @@
 <li>Git  </li>
 </ul>
 <p>接着，在管理员权限下执行以下命令即可安装：</p>
-<pre><code>$ npm install -g hexo-cli</code></pre><p>之后，执行以下命令，在你指定的目录下创建网站： </p>
-<p>1.在”folder”目录下建立网站，例如:hexo init c:/website） </p>
-<pre><code>$ hexo init &lt;folder&gt;</code></pre><p>2.定位到folder目录  </p>
-<pre><code>$ cd &lt;folder&gt;  </code></pre><p>3.在指定目录下安装依赖文件（也就是”node_modules”文件夹）。 </p>
-<pre><code>$ npm install  </code></pre><p>完成后，网站基本创建。可以在_config.yml文件中设定网站的配置信息，例如网站标题(title)，副标题(subtitle),地址(url)等等。<br>有关写作，部署等操作直接看<a href="https://hexo.io/zh-cn/docs" target="_blank" rel="noopener">官方文档</a>吧。<br>常用命令如下(在网站目录下执行)：<br><code>hexo generate</code>(生成静态文件）<br><code>hexo server</code>（本地运行网站）<br><code>hexo deploy</code>（一键部署网站）  </p>
-<h2 id="3-迁移方法"><a href="#3-迁移方法" class="headerlink" title="3.迁移方法"></a>3.迁移方法</h2><p>迁移的流程非常简单，Hexo提供了转换WordPress导出文件的官方插件。以下来自<a href="https://hexo.io/zh-cn/docs/migration" target="_blank" rel="noopener">Hexo的官方文档</a>：  </p>
-<p>1.安装 hexo-migrator-wordpress 插件。</p>
-<pre><code>$ npm install hexo-migrator-wordpress --save</code></pre><p>2.在 WordPress 仪表盘中导出数据(“Tools” → “Export” → “WordPress”)（详情参考<a href="http://en.support.wordpress.com/export/" target="_blank" rel="noopener">WP支持页面</a>）。</p>
-<p>3.插件安装完成后，执行下列命令来迁移所有文章。source 可以是 WordPress 导出文件的路径或网址。</p>
-<pre><code>$ hexo migrate wordpress &lt;source&gt;</code></pre>
+<pre><code class="hljs avrasm">$ npm install -g hexo-<span class="hljs-keyword">cli</span></code></pre>
+
+<p>之后，执行以下命令，在你指定的目录下创建网站： </p>
+<p>1.在”folder”目录下建立网站，例如:hexo init c:/website）<br>  <pre><code class="hljs autohotkey">$ hexo init &lt;folder&gt;
+```    
+
+  
+<span class="hljs-number">2</span>.定位到folder目录</code></pre><br>$ cd <folder>  </p>
+<pre><code class="hljs lsl"><span class="hljs-number">3.</span>在指定目录下安装依赖文件（也就是<span class="hljs-string">"node_modules"</span>文件夹）。</code></pre>
+<p>$ npm install  </p>
+<pre><code class="hljs">  
+
+完成后，网站基本创建。可以在_config.yml文件中设定网站的配置信息，例如网站标题(title)，副标题(subtitle),地址(url)等等。   
+有关写作，部署等操作直接看[官方文档](https://hexo.io/zh-cn/docs)吧。  
+常用命令如下(在网站目录下执行)：  
+```hexo generate```(生成静态文件）  
+```hexo server```（本地运行网站）  
+```hexo deploy```（一键部署网站）  
+
+<span class="hljs-attribute">3.迁移方法</span>
+---------------  
+迁移的流程非常简单，Hexo提供了转换WordPress导出文件的官方插件。以下来自[Hexo的官方文档](https://hexo.io/zh-cn/docs/migration)：  
+
+1.安装 hexo-migrator-wordpress 插件。</code></pre>
+<p>$ npm install hexo-migrator-wordpress –save</p>
+<pre><code class="hljs markdown">
+2.在 WordPress 仪表盘中导出数据(“Tools” → “Export” → “WordPress”)（详情参考[<span class="hljs-string">WP支持页面</span>](<span class="hljs-link">http://en.support.wordpress.com/export/</span>)）。
+
+3.插件安装完成后，执行下列命令来迁移所有文章。source 可以是 WordPress 导出文件的路径或网址。</code></pre>
+<p>$ hexo migrate wordpress <source><br>```</p>
+
             </div>
             <hr>
             <div>
