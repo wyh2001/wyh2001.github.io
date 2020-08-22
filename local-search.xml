@@ -55,11 +55,11 @@
       
       <tag>Chrome</tag>
       
-      <tag>APP</tag>
-      
       <tag>Windows</tag>
       
       <tag>Python</tag>
+      
+      <tag>APP</tag>
       
       <tag>cURL</tag>
       
@@ -332,9 +332,9 @@
     
     <tags>
       
-      <tag>浏览器</tag>
-      
       <tag>Android</tag>
+      
+      <tag>浏览器</tag>
       
       <tag>Chrome</tag>
       
