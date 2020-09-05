@@ -184,7 +184,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      30
+      29
        分钟
     </span>
   
@@ -230,104 +230,87 @@
 <p>每次运行第二个文件。可将文件二添加至计划任务，实现登录自动化。  </p>
 <h4 id="1-autologin-py"><a href="#1-autologin-py" class="headerlink" title="1. autologin.py"></a>1. autologin.py</h4><p>这儿使用Chrome的开发者工具抓包。主要参考了<a href="https://blog.csdn.net/shenhuaifeng/article/details/78333851" target="_blank" rel="noopener">shenhuaifeng</a> 的文章。  </p>
 <p><img src="/img/network.jpg" srcset="/img/loading.gif" alt=""></p>
-<pre><code class="hljs python">python
-<span class="hljs-keyword">import</span> requests
+<pre><code class="python">python
+<span class="keyword">import</span> requests
 
-<span class="hljs-comment">#登录地址</span>
-post_addr=<span class="hljs-string">"http://xxx.xxx"</span>
-<span class="hljs-comment">#构造头部信息</span>
-post_header=&#123;
- <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json, text/javascript, */*; q=0.01'</span>,
-<span class="hljs-string">'Accept-Encoding'</span>: <span class="hljs-string">'gzip, deflate'</span>,
-<span class="hljs-string">'Accept-Language'</span>: <span class="hljs-string">'zh-CN,zh;q=0.9'</span>,
-<span class="hljs-string">'Connection'</span>: <span class="hljs-string">'keep-alive'</span>,
-<span class="hljs-string">'Content-Length'</span>: <span class="hljs-string">'73'</span>,
-<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/x-www-form-urlencoded'</span>,
-<span class="hljs-string">'Cookie'</span>: <span class="hljs-string">'xxxxxx'</span>,
-<span class="hljs-string">'Host'</span>: <span class="hljs-string">'xxxxxx'</span>,
-<span class="hljs-string">'Origin'</span>: <span class="hljs-string">'http://xxxxxx'</span>,
-<span class="hljs-string">'Referer'</span>: <span class="hljs-string">'http://xxxxxx/'</span>,
-<span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'</span>,
-<span class="hljs-string">'X-Requested-With'</span>: <span class="hljs-string">'XMLHttpRequest'</span>
-&#125;
-<span class="hljs-comment">#构造登录数据</span>
-post_data=&#123; <span class="hljs-string">'username'</span>: <span class="hljs-string">'xxxxxx'</span>,
-<span class="hljs-string">'domain'</span>: <span class="hljs-string">'xxxxxx'</span>,
-<span class="hljs-string">'password'</span>: <span class="hljs-string">'xxxxxxx'</span>,
-<span class="hljs-string">'enablemacauth'</span>: <span class="hljs-string">'0'</span>
-   &#125; 
-<span class="hljs-comment">#发送post请求登录网页</span>
-requests.post(post_addr,data=post_data,headers=post_header)
-```  
+<span class="comment">#登录地址</span>
+post_addr=<span class="string">"http://xxx.xxx"</span>
+<span class="comment">#构造头部信息</span>
+post_header={
+ <span class="string">'Accept'</span>: <span class="string">'application/json, text/javascript, */*; q=0.01'</span>,
+<span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate'</span>,
+<span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.9'</span>,
+<span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,
+<span class="string">'Content-Length'</span>: <span class="string">'73'</span>,
+<span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded'</span>,
+<span class="string">'Cookie'</span>: <span class="string">'xxxxxx'</span>,
+<span class="string">'Host'</span>: <span class="string">'xxxxxx'</span>,
+<span class="string">'Origin'</span>: <span class="string">'http://xxxxxx'</span>,
+<span class="string">'Referer'</span>: <span class="string">'http://xxxxxx/'</span>,
+<span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'</span>,
+<span class="string">'X-Requested-With'</span>: <span class="string">'XMLHttpRequest'</span>
+}
+<span class="comment">#构造登录数据</span>
+post_data={ <span class="string">'username'</span>: <span class="string">'xxxxxx'</span>,
+<span class="string">'domain'</span>: <span class="string">'xxxxxx'</span>,
+<span class="string">'password'</span>: <span class="string">'xxxxxxx'</span>,
+<span class="string">'enablemacauth'</span>: <span class="string">'0'</span>
+   } 
+<span class="comment">#发送post请求登录网页</span>
+requests.post(post_addr,data=post_data,headers=post_header)</code></pre>
+<h4 id="2-auto-login-bat"><a href="#2-auto-login-bat" class="headerlink" title="2. auto-login.bat"></a>2. auto-login.bat</h4><pre><code class="cmd">@<span class="built_in">echo</span> off
+python autologin.py</code></pre>
+<h3 id="第二种：cURL"><a href="#第二种：cURL" class="headerlink" title="第二种：cURL"></a>第二种：cURL</h3><p>需要安装cURL。<br>构建一个文件：  </p>
+<h4 id="1-auto-login-bat"><a href="#1-auto-login-bat" class="headerlink" title="1. auto-login.bat"></a>1. auto-login.bat</h4><p>抓包，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(<strong>cmd</strong>)，粘贴进文件，就能作为脚本运行了。（如图）<br><img src="/img/curl2.png" srcset="/img/loading.gif" alt="">  </p>
+<h2 id="自动运行"><a href="#自动运行" class="headerlink" title="自动运行"></a>自动运行</h2><p>接着添加计划任务，思路是在指定WIFI连接时运行脚本。在此使用Windows任务计划程序实现。具体操作 <a href="https://www.zhihu.com/question/50249683/answer/950791896" target="_blank" rel="noopener">笨笨侠的回答</a> 讲的已经很详细了，当然下文我会重复一下。  </p>
+<h3 id="现成的xml文件"><a href="#现成的xml文件" class="headerlink" title="现成的xml文件"></a>现成的xml文件</h3><p>如果你懒得看具体实现过程，可以直接把以下内容存成xml文件导入。  </p>
+<p class="note note-warning">注意先把‘Your WiFi Network’改成对应的WIFI的ssid，把"C:\Users\xxx\Desktop\code\auto-login.bat"改成正确的脚本路径。</p>  
 
-
-<span class="hljs-comment">#### 2. auto-login.bat</span>
-
-```shell  
-<span class="hljs-meta">@echo off</span>
-python autologin.py
-```  
-<span class="hljs-comment">### 第二种：cURL  </span>
-需要安装cURL。  
-构建一个文件：  
-<span class="hljs-comment">#### 1. auto-login.bat </span>
-
-抓包，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(**cmd**)，粘贴进文件，就能作为脚本运行了。（如图）    
-![](/img/curl2.png)  
-
-<span class="hljs-comment">## 自动运行</span>
-接着添加计划任务，思路是在指定WIFI连接时运行脚本。在此使用Windows任务计划程序实现。具体操作 [笨笨侠的回答](https://www.zhihu.com/question/<span class="hljs-number">50249683</span>/answer/<span class="hljs-number">950791896</span>) 讲的已经很详细了，当然下文我会重复一下。  
-<span class="hljs-comment">### 现成的xml文件</span>
-如果你懒得看具体实现过程，可以直接把以下内容存成xml文件导入。  
-&lt;p class="note note-warning"&gt;注意先把‘Your WiFi Network’改成对应的WIFI的ssid，把"C:\Users\xxx\Desktop\code\auto-login.bat"改成正确的脚本路径。&lt;/p&gt;  
-
-```xml
-&lt;?xml version="1.0" encoding="UTF-16"?&gt;
-&lt;Task version=<span class="hljs-string">"1.2"</span> xmlns=<span class="hljs-string">"http://schemas.microsoft.com/windows/2004/02/mit/task"</span>&gt;
-  &lt;RegistrationInfo&gt;
-    &lt;Date&gt;2020-05-10T18:27:20.9384374&lt;/Date&gt;
-    &lt;Author&gt;YIHANG\kuail&lt;/Author&gt;
-    &lt;URI&gt;\校园网自动登录&lt;/URI&gt;
-  &lt;/RegistrationInfo&gt;
-  &lt;Triggers&gt;
-    &lt;EventTrigger&gt;
-      &lt;Enabled&gt;true&lt;/Enabled&gt;
-      &lt;Subscription&gt;&amp;lt;QueryList&amp;gt;&amp;lt;Query Id="0" Path="Microsoft-Windows-WLAN-AutoConfig/Operational"&amp;gt;&amp;lt;Select Path="Microsoft-Windows-WLAN-AutoConfig/Operational"&amp;gt;*[System[Provider[@Name='Microsoft-Windows-WLAN-AutoConfig'] and (EventID=8001)]][EventData[Data[@Name='SSID']='Your WiFi Network']]&amp;lt;/Select&amp;gt;&amp;lt;/Query&amp;gt;&amp;lt;/QueryList&amp;gt;&lt;/Subscription&gt;
-    &lt;/EventTrigger&gt;
-  &lt;/Triggers&gt;
-  &lt;Principals&gt;
-    &lt;Principal id=<span class="hljs-string">"Author"</span>&gt;
-      &lt;UserId&gt;S-1-5-21-4166746293-2997821899-17540147-1001&lt;/UserId&gt;
-      &lt;LogonType&gt;InteractiveToken&lt;/LogonType&gt;
-      &lt;RunLevel&gt;LeastPrivilege&lt;/RunLevel&gt;
-    &lt;/Principal&gt;
-  &lt;/Principals&gt;
-  &lt;Settings&gt;
-    &lt;MultipleInstancesPolicy&gt;IgnoreNew&lt;/MultipleInstancesPolicy&gt;
-    &lt;DisallowStartIfOnBatteries&gt;false&lt;/DisallowStartIfOnBatteries&gt;
-    &lt;StopIfGoingOnBatteries&gt;true&lt;/StopIfGoingOnBatteries&gt;
-    &lt;AllowHardTerminate&gt;true&lt;/AllowHardTerminate&gt;
-    &lt;StartWhenAvailable&gt;false&lt;/StartWhenAvailable&gt;
-    &lt;RunOnlyIfNetworkAvailable&gt;false&lt;/RunOnlyIfNetworkAvailable&gt;
-    &lt;IdleSettings&gt;
-      &lt;StopOnIdleEnd&gt;true&lt;/StopOnIdleEnd&gt;
-      &lt;RestartOnIdle&gt;false&lt;/RestartOnIdle&gt;
-    &lt;/IdleSettings&gt;
-    &lt;AllowStartOnDemand&gt;true&lt;/AllowStartOnDemand&gt;
-    &lt;Enabled&gt;false&lt;/Enabled&gt;
-    &lt;Hidden&gt;false&lt;/Hidden&gt;
-    &lt;RunOnlyIfIdle&gt;false&lt;/RunOnlyIfIdle&gt;
-    &lt;WakeToRun&gt;false&lt;/WakeToRun&gt;
-    &lt;ExecutionTimeLimit&gt;PT72H&lt;/ExecutionTimeLimit&gt;
-    &lt;Priority&gt;7&lt;/Priority&gt;
-  &lt;/Settings&gt;
-  &lt;Actions Context=<span class="hljs-string">"Author"</span>&gt;
-    &lt;Exec&gt;
-      &lt;Command&gt;C:\Users\xxx\Desktop\code\auto-login.bat&lt;/Command&gt;
-    &lt;/Exec&gt;
-  &lt;/Actions&gt;
-&lt;/Task&gt;</code></pre>
-
+<pre><code class="xml"><span class="meta">&lt;?xml version="1.0" encoding="UTF-16"?&gt;</span>
+<span class="tag">&lt;<span class="name">Task</span> <span class="attr">version</span>=<span class="string">"1.2"</span> <span class="attr">xmlns</span>=<span class="string">"http://schemas.microsoft.com/windows/2004/02/mit/task"</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">RegistrationInfo</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">Date</span>&gt;</span>2020-05-10T18:27:20.9384374<span class="tag">&lt;/<span class="name">Date</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">Author</span>&gt;</span>YIHANG\kuail<span class="tag">&lt;/<span class="name">Author</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">URI</span>&gt;</span>\校园网自动登录<span class="tag">&lt;/<span class="name">URI</span>&gt;</span>
+  <span class="tag">&lt;/<span class="name">RegistrationInfo</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">Triggers</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">EventTrigger</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">Enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">Enabled</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">Subscription</span>&gt;</span><span class="symbol">&amp;lt;</span>QueryList<span class="symbol">&amp;gt;</span><span class="symbol">&amp;lt;</span>Query Id="0" Path="Microsoft-Windows-WLAN-AutoConfig/Operational"<span class="symbol">&amp;gt;</span><span class="symbol">&amp;lt;</span>Select Path="Microsoft-Windows-WLAN-AutoConfig/Operational"<span class="symbol">&amp;gt;</span>*[System[Provider[@Name='Microsoft-Windows-WLAN-AutoConfig'] and (EventID=8001)]][EventData[Data[@Name='SSID']='Your WiFi Network']]<span class="symbol">&amp;lt;</span>/Select<span class="symbol">&amp;gt;</span><span class="symbol">&amp;lt;</span>/Query<span class="symbol">&amp;gt;</span><span class="symbol">&amp;lt;</span>/QueryList<span class="symbol">&amp;gt;</span><span class="tag">&lt;/<span class="name">Subscription</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">EventTrigger</span>&gt;</span>
+  <span class="tag">&lt;/<span class="name">Triggers</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">Principals</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">Principal</span> <span class="attr">id</span>=<span class="string">"Author"</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">UserId</span>&gt;</span>S-1-5-21-4166746293-2997821899-17540147-1001<span class="tag">&lt;/<span class="name">UserId</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">LogonType</span>&gt;</span>InteractiveToken<span class="tag">&lt;/<span class="name">LogonType</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">RunLevel</span>&gt;</span>LeastPrivilege<span class="tag">&lt;/<span class="name">RunLevel</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">Principal</span>&gt;</span>
+  <span class="tag">&lt;/<span class="name">Principals</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">Settings</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">MultipleInstancesPolicy</span>&gt;</span>IgnoreNew<span class="tag">&lt;/<span class="name">MultipleInstancesPolicy</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">DisallowStartIfOnBatteries</span>&gt;</span>false<span class="tag">&lt;/<span class="name">DisallowStartIfOnBatteries</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">StopIfGoingOnBatteries</span>&gt;</span>true<span class="tag">&lt;/<span class="name">StopIfGoingOnBatteries</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">AllowHardTerminate</span>&gt;</span>true<span class="tag">&lt;/<span class="name">AllowHardTerminate</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">StartWhenAvailable</span>&gt;</span>false<span class="tag">&lt;/<span class="name">StartWhenAvailable</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">RunOnlyIfNetworkAvailable</span>&gt;</span>false<span class="tag">&lt;/<span class="name">RunOnlyIfNetworkAvailable</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">IdleSettings</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">StopOnIdleEnd</span>&gt;</span>true<span class="tag">&lt;/<span class="name">StopOnIdleEnd</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">RestartOnIdle</span>&gt;</span>false<span class="tag">&lt;/<span class="name">RestartOnIdle</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">IdleSettings</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">AllowStartOnDemand</span>&gt;</span>true<span class="tag">&lt;/<span class="name">AllowStartOnDemand</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">Enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">Enabled</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">Hidden</span>&gt;</span>false<span class="tag">&lt;/<span class="name">Hidden</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">RunOnlyIfIdle</span>&gt;</span>false<span class="tag">&lt;/<span class="name">RunOnlyIfIdle</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">WakeToRun</span>&gt;</span>false<span class="tag">&lt;/<span class="name">WakeToRun</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">ExecutionTimeLimit</span>&gt;</span>PT72H<span class="tag">&lt;/<span class="name">ExecutionTimeLimit</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">Priority</span>&gt;</span>7<span class="tag">&lt;/<span class="name">Priority</span>&gt;</span>
+  <span class="tag">&lt;/<span class="name">Settings</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">Actions</span> <span class="attr">Context</span>=<span class="string">"Author"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">Exec</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">Command</span>&gt;</span>C:\Users\xxx\Desktop\code\auto-login.bat<span class="tag">&lt;/<span class="name">Command</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">Exec</span>&gt;</span>
+  <span class="tag">&lt;/<span class="name">Actions</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">Task</span>&gt;</span></code></pre>
 <h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ol>
 <li>创建一个任务，命名一个名称，如：“校园网自动登录”。接着为这个任务添加一个自定义的触发器：新建-&gt;触发器-&gt;开始任务-&gt;发生事件时-&gt;自定义-&gt;新建事件筛选器<br><img src="/img/TASK333.png" srcset="/img/loading.gif" alt=""></li>
 <li>按日志 -&gt; 事件日志-(应用程序和服务日志)-Microsoft-Windows-WLAN-AutoConfig/Operational -&gt; 事件来源-WLAN-AutoConfig -&gt; 事件ID-8001 -&gt; XML<br><img src="/img/TASK222.png" srcset="/img/loading.gif" alt=""></li>
@@ -371,9 +354,9 @@ Tasker真可谓一大神器，可以做到很多自动化的功能（比如验�
 </ol>
 <h4 id="1-autologin-py-1"><a href="#1-autologin-py-1" class="headerlink" title="1. autologin.py"></a>1. autologin.py</h4><p>代码与上文一样。</p>
 <h4 id="2-auto-login-sh"><a href="#2-auto-login-sh" class="headerlink" title="2. auto-login.sh"></a>2. auto-login.sh</h4><p><code>python  /storage/emulated/0/Download/autologin.py</code>     </p>
-<h3 id="第二种：cURL"><a href="#第二种：cURL" class="headerlink" title="第二种：cURL"></a>第二种：cURL</h3><p>构建一个文件：  </p>
+<h3 id="第二种：cURL-1"><a href="#第二种：cURL-1" class="headerlink" title="第二种：cURL"></a>第二种：cURL</h3><p>构建一个文件：  </p>
 <h4 id="1-auto-login-sh"><a href="#1-auto-login-sh" class="headerlink" title="1. auto-login.sh"></a>1. auto-login.sh</h4><p>一样是抓包，与上文提到的类似，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(<strong>bash</strong>)，粘贴进文件，脚本就构建好了。（如图）<br><img src="/img/curl.png" srcset="/img/loading.gif" alt="">    </p>
-<h2 id="自动运行"><a href="#自动运行" class="headerlink" title="自动运行"></a>自动运行</h2><p>无论是哪一种，文件都放在<code>/storage/emulated/0/Download/</code>下。  </p>
+<h2 id="自动运行-1"><a href="#自动运行-1" class="headerlink" title="自动运行"></a>自动运行</h2><p>无论是哪一种，文件都放在<code>/storage/emulated/0/Download/</code>下。  </p>
 <p>接着运行Termux，执行以下操作。    </p>
 <ol>
 <li>更新安装包   </li>
@@ -412,13 +395,13 @@ apt upgrade</code></pre>
                     
                       <a class="hover-with-bg" href="/tags/Android/">Android</a>
                     
+                      <a class="hover-with-bg" href="/tags/Chrome/">Chrome</a>
+                    
                       <a class="hover-with-bg" href="/tags/Windows/">Windows</a>
                     
                       <a class="hover-with-bg" href="/tags/Python/">Python</a>
                     
                       <a class="hover-with-bg" href="/tags/APP/">APP</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Chrome/">Chrome</a>
                     
                       <a class="hover-with-bg" href="/tags/cURL/">cURL</a>
                     
