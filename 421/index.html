@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
   <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/favicon.png">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -150,7 +150,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/yellow.jpg') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/yellow.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -229,7 +229,7 @@
 </ol>
 <p>每次运行第二个文件。可将文件二添加至计划任务，实现登录自动化。  </p>
 <h4 id="1-autologin-py"><a href="#1-autologin-py" class="headerlink" title="1. autologin.py"></a>1. autologin.py</h4><p>这儿使用Chrome的开发者工具抓包。主要参考了<a href="https://blog.csdn.net/shenhuaifeng/article/details/78333851" target="_blank" rel="noopener">shenhuaifeng</a> 的文章。  </p>
-<p><img src="/img/network.jpg" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/network.jpg" srcset="/img/loading.gif" alt=""></p>
 <pre><code class="python">python
 <span class="keyword">import</span> requests
 
@@ -261,7 +261,7 @@ requests.post(post_addr,data=post_data,headers=post_header)</code></pre>
 <h4 id="2-auto-login-bat"><a href="#2-auto-login-bat" class="headerlink" title="2. auto-login.bat"></a>2. auto-login.bat</h4><pre><code class="cmd">@<span class="built_in">echo</span> off
 python autologin.py</code></pre>
 <h3 id="第二种：cURL"><a href="#第二种：cURL" class="headerlink" title="第二种：cURL"></a>第二种：cURL</h3><p>需要安装cURL。<br>构建一个文件：  </p>
-<h4 id="1-auto-login-bat"><a href="#1-auto-login-bat" class="headerlink" title="1. auto-login.bat"></a>1. auto-login.bat</h4><p>抓包，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(<strong>cmd</strong>)，粘贴进文件，就能作为脚本运行了。（如图）<br><img src="/img/curl2.png" srcset="/img/loading.gif" alt="">  </p>
+<h4 id="1-auto-login-bat"><a href="#1-auto-login-bat" class="headerlink" title="1. auto-login.bat"></a>1. auto-login.bat</h4><p>抓包，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(<strong>cmd</strong>)，粘贴进文件，就能作为脚本运行了。（如图）<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/curl2.png" srcset="/img/loading.gif" alt="">  </p>
 <h2 id="自动运行"><a href="#自动运行" class="headerlink" title="自动运行"></a>自动运行</h2><p>接着添加计划任务，思路是在指定WIFI连接时运行脚本。在此使用Windows任务计划程序实现。具体操作 <a href="https://www.zhihu.com/question/50249683/answer/950791896" target="_blank" rel="noopener">笨笨侠的回答</a> 讲的已经很详细了，当然下文我会重复一下。  </p>
 <h3 id="现成的xml文件"><a href="#现成的xml文件" class="headerlink" title="现成的xml文件"></a>现成的xml文件</h3><p>如果你懒得看具体实现过程，可以直接把以下内容存成xml文件导入。  </p>
 <p class="note note-warning">注意先把‘Your WiFi Network’改成对应的WIFI的ssid，把"C:\Users\xxx\Desktop\code\auto-login.bat"改成正确的脚本路径。</p>  
@@ -312,13 +312,13 @@ python autologin.py</code></pre>
   <span class="tag">&lt;/<span class="name">Actions</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">Task</span>&gt;</span></code></pre>
 <h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ol>
-<li>创建一个任务，命名一个名称，如：“校园网自动登录”。接着为这个任务添加一个自定义的触发器：新建-&gt;触发器-&gt;开始任务-&gt;发生事件时-&gt;自定义-&gt;新建事件筛选器<br><img src="/img/TASK333.png" srcset="/img/loading.gif" alt=""></li>
-<li>按日志 -&gt; 事件日志-(应用程序和服务日志)-Microsoft-Windows-WLAN-AutoConfig/Operational -&gt; 事件来源-WLAN-AutoConfig -&gt; 事件ID-8001 -&gt; XML<br><img src="/img/TASK222.png" srcset="/img/loading.gif" alt=""></li>
-<li>勾选“手动编辑查询” -&gt; 在<code>&lt;/Select&gt;</code>前增加代码<code>[EventData[Data[@Name=&#39;SSID&#39;]=&#39;Your WiFi Network&#39;]]</code><br><img src="/img/TASKER8.jpg" srcset="/img/loading.gif" alt=""></li>
-<li>确定以后，在选择触发时运行的脚本：操作-&gt;新建-&gt;启动程序-程序或脚本，填入程序路径<br><img src="/img/TASK111.png" srcset="/img/loading.gif" alt=""></li>
-<li>你还可能需要在条件选项卡里面去除勾选“只有在计算机使用交流电源时才启动此任务”，以避免未接通电源时脚本停止工作。<br><img src="/img/TASK13.jpg" srcset="/img/loading.gif" alt="">    </li>
+<li>创建一个任务，命名一个名称，如：“校园网自动登录”。接着为这个任务添加一个自定义的触发器：新建-&gt;触发器-&gt;开始任务-&gt;发生事件时-&gt;自定义-&gt;新建事件筛选器<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/TASK333.png" srcset="/img/loading.gif" alt=""></li>
+<li>按日志 -&gt; 事件日志-(应用程序和服务日志)-Microsoft-Windows-WLAN-AutoConfig/Operational -&gt; 事件来源-WLAN-AutoConfig -&gt; 事件ID-8001 -&gt; XML<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/TASK222.png" srcset="/img/loading.gif" alt=""></li>
+<li>勾选“手动编辑查询” -&gt; 在<code>&lt;/Select&gt;</code>前增加代码<code>[EventData[Data[@Name=&#39;SSID&#39;]=&#39;Your WiFi Network&#39;]]</code><br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/TASKER8.jpg" srcset="/img/loading.gif" alt=""></li>
+<li>确定以后，在选择触发时运行的脚本：操作-&gt;新建-&gt;启动程序-程序或脚本，填入程序路径<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/TASK111.png" srcset="/img/loading.gif" alt=""></li>
+<li>你还可能需要在条件选项卡里面去除勾选“只有在计算机使用交流电源时才启动此任务”，以避免未接通电源时脚本停止工作。<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/TASK13.jpg" srcset="/img/loading.gif" alt="">    </li>
 </ol>
-<h3 id="2020-8-9更新"><a href="#2020-8-9更新" class="headerlink" title="2020.8.9更新"></a><strong>2020.8.9更新</strong></h3><p>如果是Python脚本，任务计划还可以这样设置：<br><img src="/img/TASK111-2.png" srcset="/img/loading.gif" alt="">  </p>
+<h3 id="2020-8-9更新"><a href="#2020-8-9更新" class="headerlink" title="2020.8.9更新"></a><strong>2020.8.9更新</strong></h3><p>如果是Python脚本，任务计划还可以这样设置：<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/TASK111-2.png" srcset="/img/loading.gif" alt="">  </p>
 <ul>
 <li>第一栏填写Python安装目录下的pythonw.exe的完整路径  </li>
 <li>第二栏填写Python脚本目录</li>
@@ -355,7 +355,7 @@ Tasker真可谓一大神器，可以做到很多自动化的功能（比如验�
 <h4 id="1-autologin-py-1"><a href="#1-autologin-py-1" class="headerlink" title="1. autologin.py"></a>1. autologin.py</h4><p>代码与上文一样。</p>
 <h4 id="2-auto-login-sh"><a href="#2-auto-login-sh" class="headerlink" title="2. auto-login.sh"></a>2. auto-login.sh</h4><p><code>python  /storage/emulated/0/Download/autologin.py</code>     </p>
 <h3 id="第二种：cURL-1"><a href="#第二种：cURL-1" class="headerlink" title="第二种：cURL"></a>第二种：cURL</h3><p>构建一个文件：  </p>
-<h4 id="1-auto-login-sh"><a href="#1-auto-login-sh" class="headerlink" title="1. auto-login.sh"></a>1. auto-login.sh</h4><p>一样是抓包，与上文提到的类似，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(<strong>bash</strong>)，粘贴进文件，脚本就构建好了。（如图）<br><img src="/img/curl.png" srcset="/img/loading.gif" alt="">    </p>
+<h4 id="1-auto-login-sh"><a href="#1-auto-login-sh" class="headerlink" title="1. auto-login.sh"></a>1. auto-login.sh</h4><p>一样是抓包，与上文提到的类似，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(<strong>bash</strong>)，粘贴进文件，脚本就构建好了。（如图）<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/curl.png" srcset="/img/loading.gif" alt="">    </p>
 <h2 id="自动运行-1"><a href="#自动运行-1" class="headerlink" title="自动运行"></a>自动运行</h2><p>无论是哪一种，文件都放在<code>/storage/emulated/0/Download/</code>下。  </p>
 <p>接着运行Termux，执行以下操作。    </p>
 <ol>
@@ -369,10 +369,10 @@ apt upgrade</code></pre>
 <li>在termux里创建目录(termux:task要求自动运行的脚本应当放于<code>~/.termux/tasker</code>下）<br><code>mkdir -p .termux/tasker</code> </li>
 <li>拷贝脚本到<code>~/.termux/tasker</code>目录<br><code>cp /storage/emulated/0/Download/auto-login.sh .termux/tasker</code>  <p class="note note-primary">由于Android10的存储规则，应用只能访问自身和公共存储区域，所以把文件放入指定目录的操作才会如此“曲折 ”。  
 此外，直接运行Python脚本是会被认为成.sh文件运行的，解决方案之一是在Python脚本开头增加声明"#!/data/data/com.termux/files/usr/bin/python"，但是实测发现，运行会报文件不存在，也不知道是为什么...😓所以Python的方法最终选择用两个脚本文件实现。</p>  </li>
-<li>接着进入Tasker，在配置文件下点击右下角加号，新建“第一条件”-&gt;状态-&gt;网络-&gt;Wifi已连接，在SSID填入对应的Wlan名称。<br><img src="/img/taska111.png" srcset="/img/loading.gif" alt="">  <p class="note note-warning">注意，从 Android 6.0 开始，WiFi 的扫描结果需在 GPS 功能开启的前提下才能获取，这意味着你需要打开定位并赋予Tasker定位权限，Tasker才能正确获取到当前连接的网络名称。当然，你也可以选择不填写SSID，但是这会让Tasker连接任意网络时都运行脚本。</p>  </li>
-<li>完成后返回，再新建一个任务，名称如“登陆校园网”，点击右下角加号添加操作-&gt;插件-&gt;Termux:Tasker-&gt;“配置”右侧的编辑按钮，进入插件的界面，填入脚本名称”auto-login.sh “<br><img src="/img/taska222.png" srcset="/img/loading.gif" alt=""></li>
+<li>接着进入Tasker，在配置文件下点击右下角加号，新建“第一条件”-&gt;状态-&gt;网络-&gt;Wifi已连接，在SSID填入对应的Wlan名称。<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/taska111.png" srcset="/img/loading.gif" alt="">  <p class="note note-warning">注意，从 Android 6.0 开始，WiFi 的扫描结果需在 GPS 功能开启的前提下才能获取，这意味着你需要打开定位并赋予Tasker定位权限，Tasker才能正确获取到当前连接的网络名称。当然，你也可以选择不填写SSID，但是这会让Tasker连接任意网络时都运行脚本。</p>  </li>
+<li>完成后返回，再新建一个任务，名称如“登陆校园网”，点击右下角加号添加操作-&gt;插件-&gt;Termux:Tasker-&gt;“配置”右侧的编辑按钮，进入插件的界面，填入脚本名称”auto-login.sh “<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/taska222.png" srcset="/img/loading.gif" alt=""></li>
 <li>点击右上角保存按钮，返回到主界面，这时一个在一定条件下触发的操作任务就被保存了。  </li>
-<li>最后不要忘记授予Tasker无障碍权限与自启动权限。<br><img src="/img/taska3333.jpg" srcset="/img/loading.gif" alt=""></li>
+<li>最后不要忘记授予Tasker无障碍权限与自启动权限。<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io/img/taska3333.jpg" srcset="/img/loading.gif" alt=""></li>
 </ol>
 <p class="note note-primary">终极的解决方案或许可以是：在一个可以刷第三方固件的路由器上设置一个cURL开机脚本。</p>
             </div>
@@ -395,13 +395,13 @@ apt upgrade</code></pre>
                     
                       <a class="hover-with-bg" href="/tags/Android/">Android</a>
                     
-                      <a class="hover-with-bg" href="/tags/Chrome/">Chrome</a>
-                    
                       <a class="hover-with-bg" href="/tags/Windows/">Windows</a>
                     
                       <a class="hover-with-bg" href="/tags/Python/">Python</a>
                     
                       <a class="hover-with-bg" href="/tags/APP/">APP</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Chrome/">Chrome</a>
                     
                       <a class="hover-with-bg" href="/tags/cURL/">cURL</a>
                     
