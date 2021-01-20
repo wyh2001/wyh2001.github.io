@@ -18,7 +18,7 @@
   <meta name="description" content="艺航的个人网站，分享生活的点滴">
   <meta name="author" content="艺航">
   <meta name="keywords" content="博客,blog,hexo">
-  <title>实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&amp;Termux（Windows/Android) - 艺航领域</title>
+  <title>实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&amp;Termux（Windows/Android)/Selenium - 艺航领域</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -174,7 +174,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      2.5k 字
     </span>
   
 
@@ -184,7 +184,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      29
+      33
        分钟
     </span>
   
@@ -214,10 +214,12 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&amp;Termux（Windows/Android)</h1>
+            <h1 style="display: none">实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&amp;Termux（Windows/Android)/Selenium</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>每次使用校园网都需要网页登录，十分麻烦。<br>以脚本代替操作，并使其在特定条件下自动运行。</p>
+              <p class="note note-warning">2021.01.20更新：学校在去年下半年更换了上网认证系统，登陆时发送的请求变复杂了（其实就是看不懂），所以更换使用了Selenium实现脚本登录，代码放在了文末。原文仍保留，适用于部分情况，仅供参考。</p>
+
+<h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>每次使用校园网都需要网页登录，十分麻烦。<br>以脚本代替操作，并使其在特定条件下自动运行。</p>
 <p>参考：<br><a href="https://blog.csdn.net/shenhuaifeng/article/details/78333851" target="_blank" rel="noopener">python实现校园网自动登录-shenhuaifeng</a><br><a href="https://www.cnblogs.com/roadwide/p/10479723.html" target="_blank" rel="noopener">校园网开机自动登录-RodeWide</a><br><a href="https://www.zhihu.com/question/50249683/answer/120583718" target="_blank" rel="noopener">如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 蒋晟的回答 - 知乎</a><br><a href="https://www.zhihu.com/question/50249683/answer/950791896" target="_blank" rel="noopener">如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 笨笨侠的回答 - 知乎</a><br><a href="https://www.jianshu.com/p/c239a7eaadba" target="_blank" rel="noopener">安卓termux折腾手记：安装python库+tasker调用 - 红色番茄酱 - 简书</a><br><a href="https://www.cnblogs.com/jiangleads/p/10636696.html" target="_blank" rel="noopener">curl命令实现上网认证登录 - chinagod - 博客园</a></p>
 <h1 id="1-Windows"><a href="#1-Windows" class="headerlink" title="1.Windows"></a>1.Windows</h1><p>操作环境：Windows 10    </p>
 <h2 id="构建脚本"><a href="#构建脚本" class="headerlink" title="构建脚本"></a>构建脚本</h2><p>登录脚本可以用Python或cURL写，后者可能更简单。  </p>
@@ -372,9 +374,56 @@ apt upgrade</code></pre>
 <li>接着进入Tasker，在配置文件下点击右下角加号，新建“第一条件”-&gt;状态-&gt;网络-&gt;Wifi已连接，在SSID填入对应的Wlan名称。<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io@master/img/taska111.png" srcset="/img/loading.gif" alt="">  <p class="note note-warning">注意，从 Android 6.0 开始，WiFi 的扫描结果需在 GPS 功能开启的前提下才能获取，这意味着你需要打开定位并赋予Tasker定位权限，Tasker才能正确获取到当前连接的网络名称。当然，你也可以选择不填写SSID，但是这会让Tasker连接任意网络时都运行脚本。</p>  </li>
 <li>完成后返回，再新建一个任务，名称如“登陆校园网”，点击右下角加号添加操作-&gt;插件-&gt;Termux:Tasker-&gt;“配置”右侧的编辑按钮，进入插件的界面，填入脚本名称”auto-login.sh “<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io@master/img/taska222.png" srcset="/img/loading.gif" alt=""></li>
 <li>点击右上角保存按钮，返回到主界面，这时一个在一定条件下触发的操作任务就被保存了。  </li>
-<li>最后不要忘记授予Tasker无障碍权限与自启动权限。<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io@master/img/taska3333.jpg" srcset="/img/loading.gif" alt=""></li>
+<li>最后不要忘记授予Tasker无障碍权限与自启动权限。<br><img src="https://cdn.jsdelivr.net/gh/wyh2001/wyh2001.github.io@master/img/taska3333.jpg" srcset="/img/loading.gif" alt="">  </li>
 </ol>
 <p class="note note-primary">终极的解决方案或许可以是：在一个可以刷第三方固件的路由器上设置一个cURL开机脚本。</p>
+
+
+<h1 id="2021-01-20更新"><a href="#2021-01-20更新" class="headerlink" title="2021.01.20更新"></a><strong>2021.01.20更新</strong></h1><h2 id="Selenium实现的相关代码"><a href="#Selenium实现的相关代码" class="headerlink" title="Selenium实现的相关代码"></a>Selenium实现的相关代码</h2><pre><code class="python"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver
+<span class="keyword">from</span> selenium.webdriver.support.select <span class="keyword">import</span> Select
+<span class="keyword">from</span> selenium.webdriver.common.keys <span class="keyword">import</span> Keys
+<span class="keyword">import</span> time
+<span class="keyword">import</span> os
+
+<span class="comment"># 开启浏览器</span>
+<span class="function"><span class="keyword">def</span> <span class="title">openChrome</span><span class="params">()</span>:</span>
+    option = webdriver.ChromeOptions()
+    option.add_argument(<span class="string">'disable-infobars'</span>)
+    option.add_argument(<span class="string">"--headless"</span>)
+    option.add_experimental_option(<span class="string">'excludeSwitches'</span>, [<span class="string">'enable-automation'</span>])
+    driver = webdriver.Chrome(options=option)
+    <span class="keyword">return</span> driver
+
+<span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(driver,str)</span>:</span>
+    <span class="keyword">try</span>:
+        driver.find_element_by_xpath(str)
+    <span class="keyword">except</span>:
+        <span class="keyword">return</span> <span class="literal">False</span>
+    <span class="keyword">else</span>:
+        <span class="keyword">return</span> <span class="literal">True</span>
+
+<span class="comment"># 流程</span>
+<span class="function"><span class="keyword">def</span> <span class="title">operate_dk</span><span class="params">(driver)</span>:</span>
+    exit_code = os.system(<span class="string">'ping www.baidu.com -n 2'</span>)<span class="comment">#检测网络</span>
+    <span class="keyword">if</span> exit_code:
+        url = <span class="string">"http://10.9.1.3/"</span>
+        driver.get(url)
+        <span class="comment">#实例化一个select类的对象</span>
+        selector=Select(driver.find_element_by_name(<span class="string">"ISP_select"</span>))
+        selector.select_by_value(<span class="string">"@zgyd"</span>)<span class="comment">#中国移动</span>
+        driver.find_element_by_xpath(<span class="string">"//input[@placeholder='学号']"</span>).send_keys(<span class="string">"12345678"</span>)
+        driver.find_element_by_xpath(<span class="string">"//input[@placeholder='密码']"</span>).send_keys(<span class="string">"12345678"</span>)
+        driver.find_element_by_xpath(<span class="string">"//form[@name='f1']//input[@name='0MKKey']"</span>).send_keys(Keys.ENTER)
+        time.sleep(<span class="number">3</span>)
+        print(<span class="string">"即将退出程序..."</span>)
+        driver.quit()
+    <span class="keyword">else</span>:
+        driver.quit()
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    driver = openChrome()
+    operate_dk(driver)</code></pre>
+
             </div>
             <hr>
             <div>
@@ -404,6 +453,8 @@ apt upgrade</code></pre>
                       <a class="hover-with-bg" href="/tags/Chrome/">Chrome</a>
                     
                       <a class="hover-with-bg" href="/tags/cURL/">cURL</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Selenium/">Selenium</a>
                     
                   </div>
                 
@@ -602,7 +653,7 @@ apt upgrade</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&Termux（Windows/Android)&nbsp;",
+        "实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&Termux（Windows/Android)/Selenium&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
