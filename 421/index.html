@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -174,7 +174,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.7k 字
+      2.9k 字
     </span>
   
 
@@ -184,7 +184,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      36
+      40
        分钟
     </span>
   
@@ -217,11 +217,11 @@
             <h1 style="display: none">实现校园网自动化登录——Python/cURL脚本+任务计划/Tasker&amp;Termux（Windows/Android)/Selenium</h1>
             
             <div class="markdown-body" id="post-body">
-              <p class="note note-warning">2021.03.16更新：针对新的认证系统抓包，重写了autologin.py，与原代码原理相似，附于文末。</p>
-<p class="note note-warning">2021.01.20更新：学校上网认证系统更新，临时使用selenium，代码附于文末。</p>
+              <p class="note note-warning">2021.03.16更新：针对新的认证系统抓包，重写了autologin.py，与原代码原理相似，<a href="https://yharea.com/421/#2021-03-16%E6%9B%B4%E6%96%B0">附于文末</a>。</p>
+<p class="note note-warning">2021.01.20更新：学校上网认证系统更新，临时使用selenium，<a href="https://yharea.com/421/#2021-01-20%E6%9B%B4%E6%96%B0">代码附于文末。</a></p>
 
 <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>每次使用校园网都需要网页登录，十分麻烦。<br>以脚本代替操作，并使其在特定条件下自动运行。</p>
-<p>参考：<br><a href="https://blog.csdn.net/shenhuaifeng/article/details/78333851" target="_blank" rel="noopener">python实现校园网自动登录-shenhuaifeng</a><br><a href="https://www.cnblogs.com/roadwide/p/10479723.html" target="_blank" rel="noopener">校园网开机自动登录-RodeWide</a><br><a href="https://www.zhihu.com/question/50249683/answer/120583718" target="_blank" rel="noopener">如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 蒋晟的回答 - 知乎</a><br><a href="https://www.zhihu.com/question/50249683/answer/950791896" target="_blank" rel="noopener">如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 笨笨侠的回答 - 知乎</a><br><a href="https://www.jianshu.com/p/c239a7eaadba" target="_blank" rel="noopener">安卓termux折腾手记：安装python库+tasker调用 - 红色番茄酱 - 简书</a><br><a href="https://www.cnblogs.com/jiangleads/p/10636696.html" target="_blank" rel="noopener">curl命令实现上网认证登录 - chinagod - 博客园</a></p>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/shenhuaifeng/article/details/78333851">python实现校园网自动登录-shenhuaifeng</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/roadwide/p/10479723.html">校园网开机自动登录-RodeWide</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/50249683/answer/120583718">如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 蒋晟的回答 - 知乎</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/50249683/answer/950791896">如何设置计划任务或者脚本才能使电脑在连接指定wifi后自动运行某程序？ - 笨笨侠的回答 - 知乎</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c239a7eaadba">安卓termux折腾手记：安装python库+tasker调用 - 红色番茄酱 - 简书</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jiangleads/p/10636696.html">curl命令实现上网认证登录 - chinagod - 博客园</a></p>
 <h1 id="1-Windows"><a href="#1-Windows" class="headerlink" title="1.Windows"></a>1.Windows</h1><p>操作环境：Windows 10    </p>
 <h2 id="构建脚本"><a href="#构建脚本" class="headerlink" title="构建脚本"></a>构建脚本</h2><p>登录脚本可以用Python或cURL写，后者可能更简单。  </p>
 <h3 id="第一种：Python"><a href="#第一种：Python" class="headerlink" title="第一种：Python"></a>第一种：Python</h3><p>需要python及requests库  </p>
@@ -231,60 +231,62 @@
 <li>auto-login.bat   </li>
 </ol>
 <p>每次运行第二个文件。可将文件二添加至计划任务，实现登录自动化。  </p>
-<h4 id="1-autologin-py"><a href="#1-autologin-py" class="headerlink" title="1. autologin.py"></a>1. autologin.py</h4><p>这儿使用Chrome的开发者工具抓包。主要参考了<a href="https://blog.csdn.net/shenhuaifeng/article/details/78333851" target="_blank" rel="noopener">shenhuaifeng</a> 的文章。  </p>
-<p><img src="https://yharea.com/img/network.jpg" srcset="/img/loading.gif" alt="">  </p>
-<pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+<h4 id="1-autologin-py"><a href="#1-autologin-py" class="headerlink" title="1. autologin.py"></a>1. autologin.py</h4><p>这儿使用Chrome的开发者工具抓包。主要参考了<a target="_blank" rel="noopener" href="https://blog.csdn.net/shenhuaifeng/article/details/78333851">shenhuaifeng</a> 的文章。  </p>
+<p><img src="https://yharea.com/img/network.jpg" srcset="/img/loading.gif" alt=""></p>
+<pre><code class="hljs python">python
+<span class="hljs-keyword">import</span> requests
 
 <span class="hljs-comment">#登录地址</span>
-post_addr=<span class="hljs-string">"http://xxx.xxx"</span>
+post_addr=<span class="hljs-string">&quot;http://xxx.xxx&quot;</span>
 <span class="hljs-comment">#构造头部信息</span>
 post_header=&#123;
- <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json, text/javascript, */*; q=0.01'</span>,
-<span class="hljs-string">'Accept-Encoding'</span>: <span class="hljs-string">'gzip, deflate'</span>,
-<span class="hljs-string">'Accept-Language'</span>: <span class="hljs-string">'zh-CN,zh;q=0.9'</span>,
-<span class="hljs-string">'Connection'</span>: <span class="hljs-string">'keep-alive'</span>,
-<span class="hljs-string">'Content-Length'</span>: <span class="hljs-string">'73'</span>,
-<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/x-www-form-urlencoded'</span>,
-<span class="hljs-string">'Cookie'</span>: <span class="hljs-string">'xxxxxx'</span>,
-<span class="hljs-string">'Host'</span>: <span class="hljs-string">'xxxxxx'</span>,
-<span class="hljs-string">'Origin'</span>: <span class="hljs-string">'http://xxxxxx'</span>,
-<span class="hljs-string">'Referer'</span>: <span class="hljs-string">'http://xxxxxx/'</span>,
-<span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'</span>,
-<span class="hljs-string">'X-Requested-With'</span>: <span class="hljs-string">'XMLHttpRequest'</span>
+ <span class="hljs-string">&#x27;Accept&#x27;</span>: <span class="hljs-string">&#x27;application/json, text/javascript, */*; q=0.01&#x27;</span>,
+<span class="hljs-string">&#x27;Accept-Encoding&#x27;</span>: <span class="hljs-string">&#x27;gzip, deflate&#x27;</span>,
+<span class="hljs-string">&#x27;Accept-Language&#x27;</span>: <span class="hljs-string">&#x27;zh-CN,zh;q=0.9&#x27;</span>,
+<span class="hljs-string">&#x27;Connection&#x27;</span>: <span class="hljs-string">&#x27;keep-alive&#x27;</span>,
+<span class="hljs-string">&#x27;Content-Length&#x27;</span>: <span class="hljs-string">&#x27;73&#x27;</span>,
+<span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/x-www-form-urlencoded&#x27;</span>,
+<span class="hljs-string">&#x27;Cookie&#x27;</span>: <span class="hljs-string">&#x27;xxxxxx&#x27;</span>,
+<span class="hljs-string">&#x27;Host&#x27;</span>: <span class="hljs-string">&#x27;xxxxxx&#x27;</span>,
+<span class="hljs-string">&#x27;Origin&#x27;</span>: <span class="hljs-string">&#x27;http://xxxxxx&#x27;</span>,
+<span class="hljs-string">&#x27;Referer&#x27;</span>: <span class="hljs-string">&#x27;http://xxxxxx/&#x27;</span>,
+<span class="hljs-string">&#x27;User-Agent&#x27;</span>: <span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36&#x27;</span>,
+<span class="hljs-string">&#x27;X-Requested-With&#x27;</span>: <span class="hljs-string">&#x27;XMLHttpRequest&#x27;</span>
 &#125;
 <span class="hljs-comment">#构造登录数据</span>
-post_data=&#123; <span class="hljs-string">'username'</span>: <span class="hljs-string">'xxxxxx'</span>,
-<span class="hljs-string">'domain'</span>: <span class="hljs-string">'xxxxxx'</span>,
-<span class="hljs-string">'password'</span>: <span class="hljs-string">'xxxxxxx'</span>,
-<span class="hljs-string">'enablemacauth'</span>: <span class="hljs-string">'0'</span>
+post_data=&#123; <span class="hljs-string">&#x27;username&#x27;</span>: <span class="hljs-string">&#x27;xxxxxx&#x27;</span>,
+<span class="hljs-string">&#x27;domain&#x27;</span>: <span class="hljs-string">&#x27;xxxxxx&#x27;</span>,
+<span class="hljs-string">&#x27;password&#x27;</span>: <span class="hljs-string">&#x27;xxxxxxx&#x27;</span>,
+<span class="hljs-string">&#x27;enablemacauth&#x27;</span>: <span class="hljs-string">&#x27;0&#x27;</span>
    &#125; 
 <span class="hljs-comment">#发送post请求登录网页</span>
 requests.post(post_addr,data=post_data,headers=post_header)</code></pre>
+
 <h4 id="2-auto-login-bat"><a href="#2-auto-login-bat" class="headerlink" title="2. auto-login.bat"></a>2. auto-login.bat</h4><pre><code class="hljs cmd">@<span class="hljs-built_in">echo</span> off
 python autologin.py</code></pre>
+
 <h3 id="第二种：cURL"><a href="#第二种：cURL" class="headerlink" title="第二种：cURL"></a>第二种：cURL</h3><p>需要安装cURL。<br>构建一个文件：  </p>
 <h4 id="1-auto-login-bat"><a href="#1-auto-login-bat" class="headerlink" title="1. auto-login.bat"></a>1. auto-login.bat</h4><p>抓包，在Chrome开发者工具中,右击登录相关的字段，选择Copy-&gt;Copy all as cURL(<strong>cmd</strong>)，粘贴进文件，就能作为脚本运行了。（如图）<br><img src="https://yharea.com/img/curl2.png" srcset="/img/loading.gif" alt="">  </p>
-<h2 id="自动运行"><a href="#自动运行" class="headerlink" title="自动运行"></a>自动运行</h2><p>接着添加计划任务，思路是在指定WIFI连接时运行脚本。在此使用Windows任务计划程序实现。具体操作 <a href="https://www.zhihu.com/question/50249683/answer/950791896" target="_blank" rel="noopener">笨笨侠的回答</a> 讲的已经很详细了，当然下文我会重复一下。  </p>
+<h2 id="自动运行"><a href="#自动运行" class="headerlink" title="自动运行"></a>自动运行</h2><p>接着添加计划任务，思路是在指定WIFI连接时运行脚本。在此使用Windows任务计划程序实现。具体操作 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/50249683/answer/950791896">笨笨侠的回答</a> 讲的已经很详细了，当然下文我会重复一下。  </p>
 <h3 id="现成的xml文件"><a href="#现成的xml文件" class="headerlink" title="现成的xml文件"></a>现成的xml文件</h3><p>如果你懒得看具体实现过程，可以直接把以下内容存成xml文件导入。  </p>
 <p class="note note-warning">注意先把‘Your WiFi Network’改成对应的WIFI的ssid，把"C:\Users\xxx\Desktop\code\auto-login.bat"改成正确的脚本路径。</p>  
 
-<pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-16"?&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">Task</span> <span class="hljs-attr">version</span>=<span class="hljs-string">"1.2"</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://schemas.microsoft.com/windows/2004/02/mit/task"</span>&gt;</span>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-16&quot;?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Task</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1.2&quot;</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://schemas.microsoft.com/windows/2004/02/mit/task&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">RegistrationInfo</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">Date</span>&gt;</span>2020-05-10T18:27:20.9384374<span class="hljs-tag">&lt;/<span class="hljs-name">Date</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">Author</span>&gt;</span>YIHANG\kuail<span class="hljs-tag">&lt;/<span class="hljs-name">Author</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Author</span>&gt;</span>YIHANG<span class="hljs-tag">&lt;/<span class="hljs-name">Author</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">URI</span>&gt;</span>\校园网自动登录<span class="hljs-tag">&lt;/<span class="hljs-name">URI</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">RegistrationInfo</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">Triggers</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">EventTrigger</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">Enabled</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">Enabled</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">Subscription</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>QueryList<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>Query Id="0" Path="Microsoft-Windows-WLAN-AutoConfig/Operational"<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>Select Path="Microsoft-Windows-WLAN-AutoConfig/Operational"<span class="hljs-symbol">&amp;gt;</span>*[System[Provider[@Name='Microsoft-Windows-WLAN-AutoConfig'] and (EventID=8001)]][EventData[Data[@Name='SSID']='Your WiFi Network']]<span class="hljs-symbol">&amp;lt;</span>/Select<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/Query<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/QueryList<span class="hljs-symbol">&amp;gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Subscription</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Subscription</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>QueryList<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>Query Id=&quot;0&quot; Path=&quot;Microsoft-Windows-WLAN-AutoConfig/Operational&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>Select Path=&quot;Microsoft-Windows-WLAN-AutoConfig/Operational&quot;<span class="hljs-symbol">&amp;gt;</span>*[System[Provider[@Name=&#x27;Microsoft-Windows-WLAN-AutoConfig&#x27;] and (EventID=8001)]][EventData[Data[@Name=&#x27;SSID&#x27;]=&#x27;Your WiFi Network&#x27;]]<span class="hljs-symbol">&amp;lt;</span>/Select<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/Query<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/QueryList<span class="hljs-symbol">&amp;gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Subscription</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">EventTrigger</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">Triggers</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">Principals</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">Principal</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"Author"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">UserId</span>&gt;</span>S-1-5-21-4166746293-2997821899-17540147-1001<span class="hljs-tag">&lt;/<span class="hljs-name">UserId</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">LogonType</span>&gt;</span>InteractiveToken<span class="hljs-tag">&lt;/<span class="hljs-name">LogonType</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Principal</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Author&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GroupId</span>&gt;</span>S-1-5-32-545<span class="hljs-tag">&lt;/<span class="hljs-name">GroupId</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">RunLevel</span>&gt;</span>LeastPrivilege<span class="hljs-tag">&lt;/<span class="hljs-name">RunLevel</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">Principal</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">Principals</span>&gt;</span>
@@ -307,12 +309,13 @@ python autologin.py</code></pre>
     <span class="hljs-tag">&lt;<span class="hljs-name">ExecutionTimeLimit</span>&gt;</span>PT72H<span class="hljs-tag">&lt;/<span class="hljs-name">ExecutionTimeLimit</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">Priority</span>&gt;</span>7<span class="hljs-tag">&lt;/<span class="hljs-name">Priority</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">Settings</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">Actions</span> <span class="hljs-attr">Context</span>=<span class="hljs-string">"Author"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Actions</span> <span class="hljs-attr">Context</span>=<span class="hljs-string">&quot;Author&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">Exec</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">Command</span>&gt;</span>C:\Users\xxx\Desktop\code\auto-login.bat<span class="hljs-tag">&lt;/<span class="hljs-name">Command</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">Exec</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">Actions</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Task</span>&gt;</span></code></pre>
+
 <h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ol>
 <li>创建一个任务，命名一个名称，如：“校园网自动登录”。接着为这个任务添加一个自定义的触发器：新建-&gt;触发器-&gt;开始任务-&gt;发生事件时-&gt;自定义-&gt;新建事件筛选器<br><img src="https://yharea.com/img/TASK333.png" srcset="/img/loading.gif" alt=""></li>
 <li>按日志 -&gt; 事件日志-(应用程序和服务日志)-Microsoft-Windows-WLAN-AutoConfig/Operational -&gt; 事件来源-WLAN-AutoConfig -&gt; 事件ID-8001 -&gt; XML<br><img src="https://yharea.com/img/TASK222.png" srcset="/img/loading.gif" alt=""></li>
@@ -324,13 +327,13 @@ python autologin.py</code></pre>
 <ul>
 <li>第一栏填写Python安装目录下的pythonw.exe的完整路径  </li>
 <li>第二栏填写Python脚本目录</li>
-<li>第三栏填写Python安装目录的完整路径  </li>
+<li>第三栏填写运行目录，如Python脚本目录  </li>
 </ul>
 <h1 id="2-Android"><a href="#2-Android" class="headerlink" title="2.Android"></a>2.Android</h1><p>光实现电脑的校园网自动登录也许远远不够，以下是手机端（Android）实现方法。<br>操作环境：MIUI11 (Android Q)<br>需要手机软件:  </p>
 <ul>
-<li>Tasker （<a href="https://www.coolapk.com/apk/net.dinglisch.android.taskerm" target="_blank" rel="noopener">酷安</a>）   </li>
-<li>Termux（<a href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noopener">F-droid</a>）  </li>
-<li>Termux:Tasker (<a href="https://f-droid.org/zh_Hans/packages/com.termux.tasker/" target="_blank" rel="noopener">F-droid</a>)  <h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2>先简单介绍一下这三个软件： </li>
+<li>Tasker （<a target="_blank" rel="noopener" href="https://www.coolapk.com/apk/net.dinglisch.android.taskerm">酷安</a>）   </li>
+<li>Termux（<a target="_blank" rel="noopener" href="https://f-droid.org/packages/com.termux/">F-droid</a>）  </li>
+<li>Termux:Tasker (<a target="_blank" rel="noopener" href="https://f-droid.org/zh_Hans/packages/com.termux.tasker/">F-droid</a>)  <h2 id="软件介绍"><a href="#软件介绍" class="headerlink" title="软件介绍"></a>软件介绍</h2>先简单介绍一下这三个软件： </li>
 </ul>
 <blockquote>
 <p>Tasker是一个让安卓系统根据用户定制的”配置文件”(Profiles)，在特定的”背景”下(Contexts)，执行指定”任务”(Tasks)的软件 （Tasker)  </p>
@@ -341,7 +344,7 @@ Tasker真可谓一大神器，可以做到很多自动化的功能（比如验�
 <blockquote>
 <p>Termux combines powerful terminal emulation with an extensive Linux package collection.(Termux)    </p>
 </blockquote>
-<p class="note note-primary">Termux是Android平台上一个强大的终端模拟器，支持 Python、 PHP、 MySQL等的安装，有一篇文章: <a href="https://www.sqlsec.com/2018/05/termux.html" target="_blank" rel="noopener">Termux 高级终端安装使用配置教程|国光</a>，有关Termux的使用写的很详细，推荐一下！</p> 
+<p class="note note-primary">Termux是Android平台上一个强大的终端模拟器，支持 Python、 PHP、 MySQL等的安装，有一篇文章: <a target="_blank" rel="noopener" href="https://www.sqlsec.com/2018/05/termux.html">Termux 高级终端安装使用配置教程|国光</a>，有关Termux的使用写的很详细，推荐一下！</p> 
 
 <blockquote>
 <p>This plugin(Termux:Tasker)for Termux provides a way to run Termux scripts from Tasker.  </p>
@@ -361,8 +364,12 @@ Tasker真可谓一大神器，可以做到很多自动化的功能（比如验�
 <h2 id="自动运行-1"><a href="#自动运行-1" class="headerlink" title="自动运行"></a>自动运行</h2><p>无论是哪一种，文件都放在<code>/storage/emulated/0/Download/</code>下。  </p>
 <p>接着运行Termux，执行以下操作。    </p>
 <ol>
-<li>更新安装包   <pre><code class="hljs shell">apt update
-apt upgrade</code></pre></li>
+<li>更新安装包   </li>
+</ol>
+<pre><code class="hljs shell">apt update
+apt upgrade</code></pre>
+
+<ol start="2">
 <li>安装python/cURL<br><code>pkg install python curl</code>  </li>
 <li>安装Requests库 (Python)<br><code>pip install requests</code>     </li>
 <li>在termux里创建目录(termux:task要求自动运行的脚本应当放于<code>~/.termux/tasker</code>下）<br><code>mkdir -p .termux/tasker</code> </li>
@@ -383,74 +390,74 @@ apt upgrade</code></pre></li>
 <span class="hljs-keyword">import</span> os
 
 <span class="hljs-comment"># 开启浏览器</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">openChrome</span><span class="hljs-params">()</span>:</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">openChrome</span>():</span>
     option = webdriver.ChromeOptions()
-    option.add_argument(<span class="hljs-string">'disable-infobars'</span>)
-    option.add_argument(<span class="hljs-string">"--headless"</span>)
-    option.add_experimental_option(<span class="hljs-string">'excludeSwitches'</span>, [<span class="hljs-string">'enable-automation'</span>])
+    option.add_argument(<span class="hljs-string">&#x27;disable-infobars&#x27;</span>)
+    option.add_argument(<span class="hljs-string">&quot;--headless&quot;</span>)
+    option.add_experimental_option(<span class="hljs-string">&#x27;excludeSwitches&#x27;</span>, [<span class="hljs-string">&#x27;enable-automation&#x27;</span>])
     driver = webdriver.Chrome(options=option)
     <span class="hljs-keyword">return</span> driver
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span><span class="hljs-params">(driver,str)</span>:</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span>(<span class="hljs-params">driver,<span class="hljs-built_in">str</span></span>):</span>
     <span class="hljs-keyword">try</span>:
-        driver.find_element_by_xpath(str)
+        driver.find_element_by_xpath(<span class="hljs-built_in">str</span>)
     <span class="hljs-keyword">except</span>:
         <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
     <span class="hljs-keyword">else</span>:
         <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
 
 <span class="hljs-comment"># 流程</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">operate_dk</span><span class="hljs-params">(driver)</span>:</span>
-    exit_code = os.system(<span class="hljs-string">'ping www.baidu.com -n 2'</span>)<span class="hljs-comment">#检测网络</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">operate_dk</span>(<span class="hljs-params">driver</span>):</span>
+    exit_code = os.system(<span class="hljs-string">&#x27;ping www.baidu.com -n 2&#x27;</span>)<span class="hljs-comment">#检测网络</span>
     <span class="hljs-keyword">if</span> exit_code:
-        url = <span class="hljs-string">"http://10.9.1.3/"</span>
+        url = <span class="hljs-string">&quot;http://10.9.1.3/&quot;</span>
         driver.get(url)
         <span class="hljs-comment">#实例化一个select类的对象</span>
-        selector=Select(driver.find_element_by_name(<span class="hljs-string">"ISP_select"</span>))
-        selector.select_by_value(<span class="hljs-string">"@zgyd"</span>)<span class="hljs-comment">#中国移动</span>
-        driver.find_element_by_xpath(<span class="hljs-string">"//input[@placeholder='学号']"</span>).send_keys(<span class="hljs-string">"12345678"</span>)
-        driver.find_element_by_xpath(<span class="hljs-string">"//input[@placeholder='密码']"</span>).send_keys(<span class="hljs-string">"12345678"</span>)
-        driver.find_element_by_xpath(<span class="hljs-string">"//form[@name='f1']//input[@name='0MKKey']"</span>).send_keys(Keys.ENTER)
+        selector=Select(driver.find_element_by_name(<span class="hljs-string">&quot;ISP_select&quot;</span>))
+        selector.select_by_value(<span class="hljs-string">&quot;@zgyd&quot;</span>)<span class="hljs-comment">#中国移动</span>
+        driver.find_element_by_xpath(<span class="hljs-string">&quot;//input[@placeholder=&#x27;学号&#x27;]&quot;</span>).send_keys(<span class="hljs-string">&quot;12345678&quot;</span>)
+        driver.find_element_by_xpath(<span class="hljs-string">&quot;//input[@placeholder=&#x27;密码&#x27;]&quot;</span>).send_keys(<span class="hljs-string">&quot;12345678&quot;</span>)
+        driver.find_element_by_xpath(<span class="hljs-string">&quot;//form[@name=&#x27;f1&#x27;]//input[@name=&#x27;0MKKey&#x27;]&quot;</span>).send_keys(Keys.ENTER)
         time.sleep(<span class="hljs-number">3</span>)
-        print(<span class="hljs-string">"即将退出程序..."</span>)
+        print(<span class="hljs-string">&quot;即将退出程序...&quot;</span>)
         driver.quit()
     <span class="hljs-keyword">else</span>:
         driver.quit()
 
-<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
     driver = openChrome()
     operate_dk(driver)</code></pre>
 <h1 id="2021-03-16更新"><a href="#2021-03-16更新" class="headerlink" title="2021.03.16更新"></a><strong>2021.03.16更新</strong></h1><p>学校更换了dr.com的方案，因此重写了脚本。</p>
 <h2 id="autologin-py"><a href="#autologin-py" class="headerlink" title="autologin.py"></a>autologin.py</h2><pre><code class="hljs python"><span class="hljs-keyword">import</span> socket
 <span class="hljs-keyword">import</span> requests
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.connect((<span class="hljs-string">'8.8.8.8'</span>, <span class="hljs-number">80</span>))
+s.connect((<span class="hljs-string">&#x27;8.8.8.8&#x27;</span>, <span class="hljs-number">80</span>))
 ip = s.getsockname()[<span class="hljs-number">0</span>]
 s.close()
-print(<span class="hljs-string">"本机ip："</span>+ip)
+print(<span class="hljs-string">&quot;本机ip：&quot;</span>+ip)
 headers = &#123;
-    <span class="hljs-string">'Connection'</span>: <span class="hljs-string">'keep-alive'</span>,
-    <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.81'</span>,
-    <span class="hljs-string">'DNT'</span>: <span class="hljs-string">'1'</span>,
-    <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'*/*'</span>,
-    <span class="hljs-string">'Referer'</span>: <span class="hljs-string">'http://10.9.1.3/'</span>,
-    <span class="hljs-string">'Accept-Language'</span>: <span class="hljs-string">'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'</span>,
+    <span class="hljs-string">&#x27;Connection&#x27;</span>: <span class="hljs-string">&#x27;keep-alive&#x27;</span>,
+    <span class="hljs-string">&#x27;User-Agent&#x27;</span>: <span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.81&#x27;</span>,
+    <span class="hljs-string">&#x27;DNT&#x27;</span>: <span class="hljs-string">&#x27;1&#x27;</span>,
+    <span class="hljs-string">&#x27;Accept&#x27;</span>: <span class="hljs-string">&#x27;*/*&#x27;</span>,
+    <span class="hljs-string">&#x27;Referer&#x27;</span>: <span class="hljs-string">&#x27;http://10.9.1.3/&#x27;</span>,
+    <span class="hljs-string">&#x27;Accept-Language&#x27;</span>: <span class="hljs-string">&#x27;zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6&#x27;</span>,
 &#125;
 params = (
-    (<span class="hljs-string">'c'</span>, <span class="hljs-string">'Portal'</span>),
-    (<span class="hljs-string">'a'</span>, <span class="hljs-string">'login'</span>),
-    (<span class="hljs-string">'callback'</span>, <span class="hljs-string">'dr1003'</span>),
-    (<span class="hljs-string">'login_method'</span>, <span class="hljs-string">'1'</span>),
-    (<span class="hljs-string">'user_account'</span>, <span class="hljs-string">',b,USERNAME'</span>),
-    (<span class="hljs-string">'user_password'</span>, <span class="hljs-string">'PASSWORD'</span>),
-    (<span class="hljs-string">'wlan_user_ip'</span>, ip),
-    (<span class="hljs-string">'wlan_user_ipv6'</span>, <span class="hljs-string">''</span>),
-    (<span class="hljs-string">'wlan_user_mac'</span>, <span class="hljs-string">'000000000000'</span>),
-    (<span class="hljs-string">'wlan_ac_ip'</span>, <span class="hljs-string">''</span>),
-    (<span class="hljs-string">'wlan_ac_name'</span>, <span class="hljs-string">''</span>),
-    (<span class="hljs-string">'jsVersion'</span>, <span class="hljs-string">'3.3.3'</span>),
+    (<span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;Portal&#x27;</span>),
+    (<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;login&#x27;</span>),
+    (<span class="hljs-string">&#x27;callback&#x27;</span>, <span class="hljs-string">&#x27;dr1003&#x27;</span>),
+    (<span class="hljs-string">&#x27;login_method&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>),
+    (<span class="hljs-string">&#x27;user_account&#x27;</span>, <span class="hljs-string">&#x27;,b,USERNAME&#x27;</span>),
+    (<span class="hljs-string">&#x27;user_password&#x27;</span>, <span class="hljs-string">&#x27;PASSWORD&#x27;</span>),
+    (<span class="hljs-string">&#x27;wlan_user_ip&#x27;</span>, ip),
+    (<span class="hljs-string">&#x27;wlan_user_ipv6&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>),
+    (<span class="hljs-string">&#x27;wlan_user_mac&#x27;</span>, <span class="hljs-string">&#x27;000000000000&#x27;</span>),
+    (<span class="hljs-string">&#x27;wlan_ac_ip&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>),
+    (<span class="hljs-string">&#x27;wlan_ac_name&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>),
+    (<span class="hljs-string">&#x27;jsVersion&#x27;</span>, <span class="hljs-string">&#x27;3.3.3&#x27;</span>),
 )
-response = requests.get(<span class="hljs-string">'http://10.9.1.3:801/eportal/'</span>, headers=headers, params=params, verify=<span class="hljs-literal">False</span>)
+response = requests.get(<span class="hljs-string">&#x27;http://10.9.1.3:801/eportal/&#x27;</span>, headers=headers, params=params, verify=<span class="hljs-literal">False</span>)
 print(response)</code></pre>
 
 
@@ -492,7 +499,7 @@ print(response)</code></pre>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -547,7 +554,7 @@ print(response)</code></pre>
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 
